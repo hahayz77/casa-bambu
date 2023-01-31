@@ -5,7 +5,7 @@ export function Hero() {
     const { teste } = useStateContext();
     return (
         <>
-            <h1 className="text-5xl font-mono">Hero Section</h1>
+            <h1 className="text-5xl">Hero Section aa</h1>
             <h2>{teste}</h2>
             <Link href="/api">Api Link</Link>
             

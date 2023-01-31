@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 :root {
   --rose: #c37c7c;
 }
@@ -17,7 +16,11 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Forum-Regular', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h2, h3, h4, h5, .nav_text{
+  font-family: 'Comfortaa-Bold', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
@@ -30,6 +33,34 @@ a:hover, .cart:hover{
   @apply transition-all scale-110 duration-300 ease-in-out;
 }
 
+@font-face {
+  font-family: "Comfortaa-Light";
+  src: local("/fonts/Comfortaa-Light"),
+   url("/fonts/Comfortaa-Light.ttf") format("truetype");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Comfortaa-Medium";
+  src: local("/fonts/Comfortaa-Medium"),
+   url("/fonts/Comfortaa-Medium.ttf") format("truetype");
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: "Comfortaa-Bold";
+  src: local("/fonts/Comfortaa-Bold"),
+   url("/fonts/Comfortaa-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Forum-Regular";
+  src: local("/fonts/Forum-Regular"),
+   url("/fonts/Forum-Regular.ttf") format("truetype");
+  font-weight: medium;
+}
+
 /*########################  Nav ##########################*/
 
 .logo{
@@ -38,7 +69,7 @@ a:hover, .cart:hover{
 }
 
 .nav_text{
-  @apply px-4 place-self-center text-rose text-lg;
+  @apply px-4 place-self-center text-rose text-base uppercase;
 }
 
 .menu_item{
@@ -53,6 +84,10 @@ a:hover, .cart:hover{
   object-fit: cover;
 }
 
+.hero_item{
+  animation: zoominoutsinglefeatured 60s infinite;
+}
+
 .swiper-button-prev, .swiper-button-next{
   color: var(--rose) !important;
   text-shadow: -1px 2px 8px rgba(0, 0, 0, 0.6) !important;
@@ -60,4 +95,16 @@ a:hover, .cart:hover{
 
 .swiper-pagination-bullet-active {
   background: var(--rose) !important;
+}
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+}
 }
