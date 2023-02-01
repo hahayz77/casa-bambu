@@ -4,6 +4,7 @@ import { Nav } from '../components/Nav';
 import { Carousel } from '../components/Carousel';
 import { ProductCategories } from '@/components/ProductCategories';
 import { Footer } from '@/components/Footer';
+import { Featured } from '@/components/Featured';
 
 export default function Index() {
     return (
@@ -12,7 +13,7 @@ export default function Index() {
                 <Nav/>
                 <Carousel/>
                 <ProductCategories/>
-                {/* <Hero/> */}
+                <Featured/>
                 <Footer/>
             </StateContext>
         </>

@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Footer() {
     return (
         <>
-            <footer class="text-black body-font bg-bege border-t-rose border-t-2 border-dotted">
+            <footer class="text-black body-font bg-bege border-t-rose border-t-2">
                 <div class="container px-5 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                     <div class="flex-grow flex flex-wrap md:text-left md:pl-10 text-center">
                     <div class="lg:w-1/4 md:w-1/2 w-full mb-10 lg:mb-0 px-4">
