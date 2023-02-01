@@ -30,19 +30,19 @@ export function Nav() {
                 </div> 
             {/* <-- Icon menu to Small Nav --> */}
             <nav className="bg-white sm:hidden flex justify-start align-middle w-full h-[60px] transition-all duration-300">
-                <span onClick={()=>{setActiveMenu(!activemenu)}}><Image className='bt_side_menu absolute top-0 left-[12px] h-[60px] w-[30px]' src="/menu-icon.svg" alt="me" width="100" height="100"></Image></span>
+                <span onClick={()=>{setActiveMenu(!activemenu)}}>
+                    <Image className={`bt_side_menu absolute top-0 left-[12px] h-[60px] w-[30px] ${activemenu === true ? 'openmenu' : 'closemenu'}`} src="/menu-icon.svg" alt="me" width="100" height="100"></Image>
+                    </span>
                 <figure className="h-20 p-1 w-[80px] block mx-auto"><Image className='mx-auto w-[80px]' src="/logo.svg" alt="me" width="120" height="300"></Image></figure>
             </nav>
             {/* <-- Small Nav --> */}
-            {activemenu === true && <>
-                <div className="menu absolute top-[62px] h-fill w-full pb-10 z-10 bg-bege transition-all duration-300">
-                    <span className='block text-end pr-4 text-rose font-mono text-3xl shadow-black drop-shadow-sm' onClick={()=>{setActiveMenu(!activemenu)}}> x </span>
-                    <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Início</Link>
-                    <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Sobre</Link>
-                    <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Produtos</Link>
-                    <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Contato</Link>
-                </div>
-            </>}
+            <div className={`small_nav absolute top-[62px] h-fill w-full pb-10 z-10 bg-bege ${activemenu === true ? 'menuheight' : 'noheight'} `}>
+                <span className='block text-end pr-4 text-rose text-2xl' onClick={()=>{setActiveMenu(!activemenu)}}> x </span>
+                <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Início</Link>
+                <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Sobre</Link>
+                <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Produtos</Link>
+                <Link href="#" onClick={()=>{setActiveMenu(!activemenu)}} className='menu_item'>Contato</Link>
+            </div>
             <hr className='bg-rose h-[2px] w-full border-none'/>
         </>
     )

@@ -26,7 +26,7 @@ export function Carousel() {
           clickable: true,
         }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
-        className="h-[90vh] w-full"
+        className="carousel w-full"
       >
         <SwiperSlide>
           <img className="hero_item" src="/imgs/hero01.jpg" />

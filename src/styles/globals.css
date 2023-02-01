@@ -4,6 +4,8 @@
 
 :root {
   --rose: #c37c7c;
+  --heroheightsm: calc(100vh - 60px);
+  --heroheightmd: calc(100vh - 80px);
 }
 
 * {
@@ -19,7 +21,7 @@ body {
   font-family: 'Forum-Regular', Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1, h2, h3, h4, h5, .nav_text{
+h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span{
   font-family: 'Comfortaa-Bold', Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -73,18 +75,42 @@ a:hover, .cart:hover{
 }
 
 .menu_item{
-  @apply block text-rose text-lg mt-5 text-center;
+  @apply block text-rose mt-5 text-center text-base uppercase;
 }
 
+.openmenu{
+  transform: rotate(90deg);
+  transition: transform 600ms;
+}
+.closemenu{
+  transform: rotate(0deg);
+  transition: transform 600ms;
+}
+
+.menuheight{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 400ms, opacity 400ms, visibility 400ms;
+  }
+  .noheight{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-120%);
+    transition: transform 400ms, opacity 400ms, visibility 400ms;
+}
+
+
 /*######################## Carousel ########################*/
+
+.carousel{
+  @apply md:h-[var(--heroheightmd)] h-[var(--heroheightsm)];
+}
 
 .hero_item{
   height: 100%;
   width: 100%;
   object-fit: cover;
-}
-
-.hero_item{
   animation: zoominoutsinglefeatured 60s infinite;
 }
 
@@ -106,5 +132,5 @@ a:hover, .cart:hover{
   }
   100% {
     transform: scale(1);
-}
+  }
 }
