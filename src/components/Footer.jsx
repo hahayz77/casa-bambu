@@ -3,8 +3,8 @@ import Link from "next/link";
 export function Footer() {
     return (
         <>
-            <footer class="text-black body-font bg-white border-t-rose border-t-2">
-                <div class="container px-5 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+            <footer class="footer bg-special">
+                <div class="footer_container">
                     <div class="flex-grow flex flex-wrap md:text-left md:pl-10 text-center">
                     <div class="lg:w-1/4 md:w-1/2 w-full mb-10 lg:mb-0 px-4">
                         <h2 class="title-font font-medium tracking-widest text-sm mb-3">CONTATO:</h2>
@@ -12,8 +12,8 @@ export function Footer() {
                         <p>Tel: (81)99999-9999</p>
                         <p>E-mail: contato@casabambu.com</p>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 w-full mb-10 lg:mb-0 px-4 text-black">
-                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">LINKS</h2>
+                    <div class="lg:w-1/4 md:w-1/2 w-full mb-10 lg:mb-0 px-4">
+                        <h2 class="title-font font-medium tracking-widest text-sm mb-3">LINKS</h2>
                         <p><Link href="/sobre" class="hover:opacity-70">SOBRE</Link></p>
                         <p><Link href="/sobre" class="hover:opacity-70">PRODUTOS</Link></p>
                         <p><Link href="/sobre" class="hover:opacity-70">CONTATO</Link></p>
@@ -42,8 +42,7 @@ export function Footer() {
                     </div>
                     </div>
                 </div>
-                <div class="bg-gray-100 text-rose">
-                    <div class="container mx-auto pb-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <div class="container mx-auto pb-4 px-5 flex flex-wrap flex-col sm:flex-row text-bege text-opacity-70">
                     <p class="text-gray-500 text-sm text-center sm:text-left">
                         <a className="mx-0" href="https://www.github.com/hahayz77" rel="noopener noreferrer" target="_blank">© 2023 Github.com/hahayz77</a>
                     </p>
@@ -60,7 +59,6 @@ export function Footer() {
                         </svg>
                         </a>
                     </span>
-                    </div>
                 </div>
             </footer>
         </>
