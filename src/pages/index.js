@@ -1,10 +1,9 @@
 import { StateContext } from '@/context/StateContext'
-import { Hero } from '../components/Hero';
 import { Nav } from '../components/Nav';
 import { Carousel } from '../components/Carousel';
 import { ProductCategories } from '@/components/ProductCategories';
 import { Footer } from '@/components/Footer';
-import { Featured } from '@/components/Featured';
+import { Galery } from '@/components/Galery';
 
 export default function Index() {
     return (
@@ -13,7 +12,7 @@ export default function Index() {
                 <Nav/>
                 <Carousel/>
                 <ProductCategories/>
-                <Featured/>
+                <Galery/>
                 <Footer/>
             </StateContext>
         </>

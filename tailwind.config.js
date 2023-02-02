@@ -9,7 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {}, 
+    extend: {
+      gridTemplateColumns: {
+      'autofit': 'repeat(auto-fit,minmax(300px,1fr))'
+      }
+    }, 
     colors: {
       'rose': '#c37c7c',
       'bege': '#fffbf6',

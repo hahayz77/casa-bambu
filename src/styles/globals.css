@@ -39,6 +39,15 @@ a:hover, .cart:hover{
   @apply transition-all scale-110 duration-300 ease-in-out;
 }
 
+.btn_cta{
+  @apply border-rose border-2 rounded-full px-8 py-3 text-white block mx-auto text-[1.3rem];
+  font-family: 'Comfortaa-Bold', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn_cta:hover{
+  @apply scale-110 transition-all duration-300 ease-in-out text-white;
+}
+
 @font-face {
   font-family: "Comfortaa-Light";
   src: local("/fonts/Comfortaa-Light"),
@@ -75,7 +84,7 @@ a:hover, .cart:hover{
 }
 
 .nav_text{
-  @apply px-4 place-self-center text-rose text-base uppercase;
+  @apply mx-4 place-self-center text-rose text-base uppercase;
 }
 
 .menu_item{
@@ -143,21 +152,51 @@ a:hover, .cart:hover{
 
 .product_box{
   @apply w-[200px] h-[200px] bg-bege rounded-3xl overflow-hidden;
-  /* box-shadow: 0px 1px 10px var(--rose); */
   border-bottom: 2px solid #c37c7c;
 }
 
+.fav_item{
+  @apply hover:scale-105 transition-all duration-500 m-2;
+}
+
+.fav_item img{
+  @apply object-cover w-[90vw] h-auto sm:w-full sm:h-32 md:h-48;
+}
+
+/*######################## Categories ########################*/
+
+.fav_categories{
+  @apply flex flex-wrap justify-center align-middle mb-20 py-20;
+}
+
+.fav_categories div{
+  @apply hover:scale-105 transition-all duration-100 rounded-lg overflow-hidden;
+}
+
+.fav_categories div img{
+  @apply hover:scale-110 transition-all duration-700 overflow-hidden;
+}
+
+
 .categories{
-  @apply hover:scale-105 transition-all duration-500;
+  @apply flex flex-row justify-evenly align-middle flex-wrap;
 }
 
-.categories img{
-  @apply hover:scale-110 transition-all duration-300;
+.categories_div{
+  @apply p-4 flex flex-col text-center items-center hover:scale-105 duration-300 transition-all;
 }
 
-/*######################## Featured ########################*/
+.categories_items{
+  @apply w-20 h-20 inline-flex items-center justify-center rounded-full text-white mb-5 flex-shrink-0;
+}
 
-.featured_grid img{
-  @apply h-full w-full object-cover;
+.cat_description{
+  @layer text-lg title-font font-medium mb-3;
+}
+
+/*######################## Galery ########################*/
+
+.galery img{
+  @apply h-full w-full object-cover rounded-lg;
 }
 
