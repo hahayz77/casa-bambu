@@ -4,17 +4,17 @@ import { Carousel } from '../components/Carousel';
 import { ProductCategories } from '@/components/ProductCategories';
 import { Footer } from '@/components/Footer';
 import { Galery } from '@/components/Galery';
+import { Cart } from '@/components/Cart';
 
 export default function Index() {
     return (
         <>
-            <StateContext>
-                <Nav/>
-                <Carousel/>
-                <ProductCategories/>
-                <Galery/>
-                <Footer/>
-            </StateContext>
+            <Nav/>
+            <Cart/>
+            <Carousel/>
+            <ProductCategories/>
+            <Galery/>
+            <Footer/>
         </>
     )
 }

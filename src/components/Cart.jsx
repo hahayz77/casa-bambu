@@ -1,0 +1,42 @@
+import Image from "next/image";
+import { useStateContext } from "../context/StateContext";
+
+
+export function Cart() {
+    const { cart, showCart, setShowCart } = useStateContext();
+    return (
+        <>
+            <div className={`cart_menu ${showCart === true ? 'showcartmenu' : 'hidecartmenu'}`} >
+                <div className={`mask_cart ${showCart === true ? 'showmask' : 'hidemask'}`} onClick={()=>{setShowCart(false)}}></div>
+                <span onClick={()=>{setShowCart(false)}} className="x_cart"> x </span>
+                <div className={`cart_container bg-special ${showCart === true ? 'showcart' : 'hidecart'}`}>
+                    <div className="cart_header"><h1>Carrinho</h1></div>
+                    <div className="cart_items">
+                        {cart.map((e,index)=>{return(
+                            <div className="item_cart">
+                                <div className="cart_img">
+                                    <Image src='/imgs/hero04.jpg' width="460" height="460"/>
+                                </div>
+                                <div className="cart_item_content">
+                                    <div className="cart_item_title">Item {index}</div>
+                                    <div className="cart_item_commands">
+                                        <div className="qty_controls">
+                                            <button className="cart_btn"> - </button>
+                                            <span>1</span>
+                                            <button className="cart_btn"> + </button>
+                                        </div>
+                                        <span>R$100,00</span>
+
+                                    </div>
+                                </div>    
+                            </div>
+                        )})}
+                        <div className="cart_buy_btn">
+                            <button> Finalizar Comprar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}

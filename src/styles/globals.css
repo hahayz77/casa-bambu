@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span{
 }
 
 .title{
-  @apply text-4xl text-rose text-center my-16 uppercase;
+  @apply text-3xl md:text-4xl text-rose text-center my-16 uppercase;
 }
 
 a {
@@ -46,6 +46,10 @@ a:hover, .cart:hover{
 
 .btn_cta:hover{
   @apply scale-110 transition-all duration-300 ease-in-out text-white;
+}
+
+.x_menu{
+  @apply block text-end pr-4 text-rose text-2xl;
 }
 
 @font-face {
@@ -76,6 +80,7 @@ a:hover, .cart:hover{
   font-weight: medium;
 }
 
+
 /*########################  Nav ##########################*/
 
 .logo{
@@ -100,19 +105,122 @@ a:hover, .cart:hover{
   transition: transform 600ms;
 }
 
-.menuheight{
+.small_nav{
+  @apply absolute top-[62px] h-fit w-full pb-10 z-10 bg-bege;
+}
+
+.activemenu{
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
     transition: transform 400ms, opacity 400ms, visibility 400ms;
   }
-  .noheight{
+
+  .hidemenu{
     visibility: hidden;
     opacity: 0;
     transform: translateX(-120%);
     transition: transform 400ms, opacity 400ms, visibility 400ms;
 }
 
+
+
+/*######################## Cart ########################*/
+
+.showcartmenu{
+  visibility: visible;
+  opacity: 1;
+}
+
+.hidecartmenu{
+  visibility: hidden; 
+  opacity: 0;
+}
+
+.showcart{
+  transform: translateX(0);
+  transition: transform 200ms;
+}
+
+.hidecart{
+  transform: translateX(100vw);
+  transition: transform 200ms;
+}
+
+.showmask{
+  filter: blur(10rem);
+  left: 0;
+  transition: left 600ms;
+}
+
+.hidemask{
+  left: 100vw;
+  transition: left 600ms;
+}
+
+.mask_cart{
+  @apply h-full w-full fixed top-0 z-30 bg-[rgba(0,0,0,0.7)] cursor-pointer;
+}
+
+.cart_container{
+  @apply h-full fixed top-0 right-0 w-full sm:w-[80vw] md:w-[40vw] z-30 flex flex-nowrap flex-col sm:rounded-l-3xl overflow-y-auto px-3;
+}
+
+.x_cart{
+  @apply fixed top-5 right-5 text-2xl z-50 px-4 py-[7px] bg-white text-rose cursor-pointer rounded-full shadow-lg hover:scale-110 transition-[transform] duration-300;
+}
+
+.cart_header{
+  @apply w-full h-28 text-2xl my-6 text-center grid place-content-center text-white;
+}
+
+.cart_items{
+  @apply w-full h-full;
+}
+
+.item_cart{
+  @apply w-full h-40 bg-white bg-opacity-70 my-3 flex flex-nowrap rounded-lg overflow-hidden shadow-2xl;
+}
+
+.cart_img{
+  @apply w-1/2;
+}
+
+.cart_img img{
+ @apply  h-full w-full object-cover overflow-hidden;
+}
+
+.cart_item_title{
+ @apply  mt-4 sm:my-2;
+}
+
+.cart_item_content{
+ @apply  p-2;
+}
+
+.qty_controls{
+ @apply  pb-4 pt-2 sm:py-4;
+}
+
+.cart_item_commands{
+ @apply  mb-4;
+}
+
+.cart_btn{
+ @apply bg-rose text-base sm:text-xl mr-2 sm:mr-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full text-white shadow-lg hover:scale-105 transition-transform duration-300;
+}
+
+.cart_item_commands span{
+ @apply  pr-2 sm:pr-4 my-3;
+}
+
+.cart_buy_btn{
+ @apply  py-8;
+}
+
+.cart_buy_btn button{
+ @apply border-white hover:border-2 rounded-full px-8 py-3 text-white block mx-auto text-lg bg-green bg-opacity-80 hover:scale-110 transition-all duration-300;
+}
 
 /*######################## Carousel ########################*/
 
@@ -121,19 +229,8 @@ a:hover, .cart:hover{
 }
 
 .hero_item{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  @apply h-full w-full object-cover;
   animation: zoominoutsinglefeatured 60s infinite;
-}
-
-.swiper-button-prev, .swiper-button-next{
-  color: var(--rose) !important;
-  text-shadow: -1px 2px 8px rgba(0, 0, 0, 0.6) !important;
-}
-
-.swiper-pagination-bullet-active {
-  background: var(--rose) !important;
 }
 
 @keyframes zoominoutsinglefeatured {
@@ -147,6 +244,16 @@ a:hover, .cart:hover{
     transform: scale(1);
   }
 }
+
+.swiper-button-prev, .swiper-button-next{
+  color: var(--rose) !important;
+  text-shadow: -1px 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--rose) !important;
+}
+
 
 /*######################## Product ########################*/
 
