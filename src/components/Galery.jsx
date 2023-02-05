@@ -1,9 +1,9 @@
 export function Galery() {
     return (
         <>
-            <section class="galery">
+            <section className="galery">
                 <h1 className="title">Galeria</h1>
-                <div class="galery_grid">
+                <div className="galery_grid">
                     <div className="grid1 md:col-span-2"><img src="/imgs/hero01.jpg" alt="img1"/></div>
                     <div className="grid2"><img src="/imgs/hero02.jpg" alt="img2"/></div>
                     <div className="grid3"><img src="/imgs/hero03.jpg" alt="img3"/></div>
