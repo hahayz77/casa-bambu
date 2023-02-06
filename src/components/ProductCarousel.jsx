@@ -32,9 +32,10 @@ export function ProductCarousel() {
                     },
                   }}
                 spaceBetween={10}
+                speed={800}
                 autoplay={{
-                delay: 1000,
-                disableOnInteraction: true,
+                delay: 3000,
+                disableOnInteraction: false,
                 }}
                 freeMode={true}
                 pagination={{
