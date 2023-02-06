@@ -6,10 +6,11 @@ const Context = createContext();
 export const StateContext = ( { children } ) => {
     const teste = "UseContext()!";
     const [showCart, setShowCart] = useState(false);
+    const [navRoute, setNavRoute] = useState("");
     const [cart, setCart] = useState([1,1,1,1,1,1]);
 
     
-    RouterDataControl(setShowCart);
+    RouterDataControl(setNavRoute,setShowCart);
 
     return(
         <Context.Provider value={{
@@ -18,6 +19,7 @@ export const StateContext = ( { children } ) => {
             setShowCart, 
             cart, 
             setCart,
+            navRoute,
         }}>
         {children}
         </Context.Provider>

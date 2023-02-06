@@ -96,6 +96,10 @@ a:hover, .cart:hover{
   @apply block text-rose mt-5 text-center text-base uppercase;
 }
 
+.nav_active{
+ @apply border-b-rose border-b-2 border-opacity-30; 
+}
+
 .openmenu{
   transform: rotate(90deg);
   transition: transform 600ms;
@@ -163,7 +167,7 @@ a:hover, .cart:hover{
 }
 
 .cart_container{
-  @apply h-full fixed top-0 right-0 w-full sm:w-[80vw] md:w-[40vw] z-30 flex flex-nowrap flex-col sm:rounded-l-3xl overflow-y-auto px-3;
+  @apply h-full fixed top-0 right-0 w-full sm:w-[80vw] md:w-[40vw] z-30 flex flex-nowrap flex-col sm:rounded-l-3xl overflow-y-auto p-3;
 }
 
 .x_cart{
@@ -328,4 +332,70 @@ a:hover, .cart:hover{
 
 .footer_container{
   @apply px-16 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col;
+}
+
+
+/*######################## Product ########################*/
+
+.product_container{
+ @apply  p-6 flex flex-wrap;
+}
+
+.product_image_container{
+ @apply  flex flex-col w-full md:w-1/2;
+}
+
+.product_img{
+ @apply  w-full h-[70%] rounded-3xl overflow-hidden;
+}
+
+.product_img img{
+  @apply w-full h-full object-cover;
+}
+
+.mini_carousel{
+ @apply  h-[20%];
+}
+
+.product_content{
+ @apply flex flex-col justify-center w-full md:w-1/2 px-3 md:px-10 py-5 gap-4 text-white;
+}
+
+.product_name{
+ @apply  text-4xl font-bold;
+}
+
+.product_controls{
+ @apply  flex flex-row justify-center w-full py-6;
+}
+
+.product_controls button{
+ @apply  bg-white text-xl text-rose h-10 w-10 mx-3 rounded-full align-middle hover:scale-110 transition-[transform] duration-300;
+}
+
+.product_controls span{
+  @apply self-center;
+}
+
+#productminicarousel{
+ @apply  w-full h-full rounded-3xl;
+ padding: 5px 35px 10px 0px !important;
+}
+
+#productminicarousel .swiper-scrollbar-drag{
+  @apply bg-white;
+ }
+ 
+
+.mini_slide_item{
+  @apply rounded-lg overflow-hidden w-60;
+}
+
+.mini_slide_item img{
+  @apply h-full w-full object-cover;
+}
+
+
+#productcarousel{
+  @apply px-6 py-20 my-20;
 }
