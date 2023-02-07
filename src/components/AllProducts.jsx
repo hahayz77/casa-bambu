@@ -1,7 +1,7 @@
-export function Products() {
+export function AllProducts() {
     return (
         <>
-            <h1 className="title">Produtos</h1>
+            <h1 className="title">Todos os Produtos</h1>
         </>
     )
 }

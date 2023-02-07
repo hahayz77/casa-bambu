@@ -19,6 +19,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: 'Comfortaa-Medium', Verdana, Geneva, Tahoma, sans-serif;
+  scroll-behavior: smooth !important;
 }
 
 h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span{
@@ -26,7 +27,7 @@ h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span{
 }
 
 .title{
-  @apply text-3xl md:text-4xl text-rose text-center my-16 uppercase;
+  @apply text-3xl md:text-4xl text-rose text-center my-16 mb-12 lg:mb-16 uppercase pt-8;
 }
 
 a {
@@ -338,7 +339,7 @@ a:hover, .cart:hover{
 /*######################## Product ########################*/
 
 .product_container{
- @apply  p-6 flex flex-wrap;
+ @apply  p-6 pt-10 sm:pt-20 flex flex-wrap;
 }
 
 .product_image_container{
@@ -401,7 +402,15 @@ a:hover, .cart:hover{
 
 
 #productcarousel{
-  @apply px-6 py-20 my-20;
+  @apply px-6 pt-2 pb-10 md:py-20 my-16 md:my-20;
+}
+
+.slide_item{
+ @apply  max-w-[400px] rounded-lg overflow-hidden
+}
+
+.product_carousel_img img{
+  @apply w-auto min-h-[300px] object-cover min-w-[200px];
 }
 
 .product_carousel_content{

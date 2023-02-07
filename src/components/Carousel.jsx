@@ -8,7 +8,6 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// import required modules
 
 export function Carousel() {
   return (
@@ -29,19 +28,19 @@ export function Carousel() {
         className="carousel w-full"
       >
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero01.jpg" height='1000' width='1000' />
+          <Image className="hero_item" src="/imgs/hero01.jpg" height='2000' width='2000' />
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero02.jpg" height='1000' width='1000' />
+          <Image className="hero_item" src="/imgs/hero02.jpg" height='2000' width='2000' />
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero03.jpg" height='1000' width='1000' />
+          <Image className="hero_item" src="/imgs/hero03.jpg" height='2000' width='2000' />
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero04.jpg" height='1000' width='1000' />
+          <Image className="hero_item" src="/imgs/hero04.jpg" height='2000' width='2000' />
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero05.jpg" height='1000' width='1000' />
+          <Image className="hero_item" src="/imgs/hero05.jpg" height='2000' width='2000' />
         </SwiperSlide>
       </Swiper>
     </>

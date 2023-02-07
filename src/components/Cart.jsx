@@ -27,7 +27,7 @@ export function Cart() {
                                         </div>
                                         <span>R$100,00</span>
                                     </div>
-                                <div className="cart_trash"><Image src='trash.svg' width='30' height='30'/></div>
+                                <div className="cart_trash"><Image src='/trash.svg' width='30' height='30'/></div>
                                 </div>    
                             </div>
                         )})}

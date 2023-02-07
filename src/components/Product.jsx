@@ -8,10 +8,10 @@ export function Product(props) {
     const { miniCarousel, miniCarouselIndex } = useStateContext();
     return (
         <>
-            <div className="product_container bg-special">
+            <div id="product" className="product_container bg-special">
                 <div className="product_image_container">
                     <div className="product_img">
-                        <Link href='#' onClick={()=>{}}><Image src={miniCarousel[miniCarouselIndex]} height='1000' width='1000'></Image></Link>
+                        <Link href='#nav' onClick={()=>{}}><Image src={miniCarousel[miniCarouselIndex]} height='1000' width='1000'></Image></Link>
                         
                     </div>
                     <div className="mini_carousel">
