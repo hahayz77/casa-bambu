@@ -5,8 +5,7 @@ import { useState } from "react";
 import { ProductMiniCarousel } from "./ProductMiniCarousel";
 
 export function Product(props) {
-    const { miniCarousel, setMiniCarousel, miniCarouselIndex, setMiniCarouselIndex } = useStateContext();
-    const [showProductImg, setshowProductImg] = useState();
+    const { miniCarousel, miniCarouselIndex } = useStateContext();
     return (
         <>
             <div className="product_container bg-special">

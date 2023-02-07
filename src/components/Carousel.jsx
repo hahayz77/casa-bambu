@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -8,7 +9,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
-import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 
 export function Carousel() {
   return (
@@ -29,19 +29,19 @@ export function Carousel() {
         className="carousel w-full"
       >
         <SwiperSlide>
-          <img className="hero_item" src="/imgs/hero01.jpg" />
+          <Image className="hero_item" src="/imgs/hero01.jpg" height='1000' width='1000' />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="hero_item" src="/imgs/hero02.jpg" />
+          <Image className="hero_item" src="/imgs/hero02.jpg" height='1000' width='1000' />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="hero_item" src="/imgs/hero03.jpg" />
+          <Image className="hero_item" src="/imgs/hero03.jpg" height='1000' width='1000' />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="hero_item" src="/imgs/hero04.jpg" />
+          <Image className="hero_item" src="/imgs/hero04.jpg" height='1000' width='1000' />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="hero_item" src="/imgs/hero05.jpg" />
+          <Image className="hero_item" src="/imgs/hero05.jpg" height='1000' width='1000' />
         </SwiperSlide>
       </Swiper>
     </>

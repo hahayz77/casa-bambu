@@ -50,7 +50,9 @@ export function ProductCarousel() {
                 {repeat.map((e,index)=>{
                     return(
                         <SwiperSlide className="mini_slide_item">
-                          <div className="product_carousel_img"><Image src='/imgs/hero05.jpg' width='600' height='600' /></div>
+                          <div className="product_carousel_img">
+                            <Link href='#outrosprodutos'><Image src='/imgs/hero05.jpg' width='600' height='600' /></Link>
+                          </div>
                           <div className="product_carousel_content">
                             <span>Item {index+1}</span>
                             <span>R$ 100,00</span>

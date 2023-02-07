@@ -1,7 +1,6 @@
 import { StateContext } from '@/context/StateContext'
 import { Nav } from '../components/Nav';
 import { Footer } from '@/components/Footer';
-import { Products } from '@/components/AllProducts';
 import { Cart } from '@/components/Cart';
 
 export default function Index() {
@@ -10,7 +9,6 @@ export default function Index() {
             <StateContext>
                 <Nav/>
                 <Cart/>
-                <Products/>
                 <Footer/>
             </StateContext>
         </>
