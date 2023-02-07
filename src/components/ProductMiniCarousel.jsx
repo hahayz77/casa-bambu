@@ -5,10 +5,13 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 import Image from "next/image";
+import Link from "next/link";
+import { useStateContext } from "@/context/StateContext";
 
 
 export function ProductMiniCarousel() {
-    const repeat = [1,1,1,1,1,1,1,1];
+    const { setMiniCarouselIndex, miniCarousel } = useStateContext();
+    const repeat = [0,1,2,3,4];
     return (
         <>
             <Swiper
@@ -26,7 +29,7 @@ export function ProductMiniCarousel() {
                 className="product_mini_slider">
                 {repeat.map((e,index)=>{
                     return(
-                        <SwiperSlide className="mini_slide_item"><Image src='/imgs/hero04.jpg' width='600' height='600' /></SwiperSlide>
+                        <SwiperSlide className="mini_slide_item"><Link href='#' onClick={()=>{setMiniCarouselIndex(index)}}><Image src={miniCarousel[index]} width='600' height='600' /></Link></SwiperSlide>
                     )
                 })}
             </Swiper>

@@ -365,6 +365,10 @@ a:hover, .cart:hover{
  @apply  text-4xl font-bold;
 }
 
+.product_price{
+ @apply  text-2xl;
+}
+
 .product_controls{
  @apply  flex flex-row justify-center w-full py-6;
 }
@@ -388,7 +392,7 @@ a:hover, .cart:hover{
  
 
 .mini_slide_item{
-  @apply rounded-lg overflow-hidden w-60;
+  @apply  rounded-lg overflow-hidden relative;
 }
 
 .mini_slide_item img{
@@ -398,4 +402,12 @@ a:hover, .cart:hover{
 
 #productcarousel{
   @apply px-6 py-20 my-20;
+}
+
+.product_carousel_content{
+ @apply  flex flex-col absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4 text-lg
+}
+
+.add_cart_carousel{
+ @apply  absolute right-[15px] bottom-[10px] bg-rose text-white h-[40px] w-[40px] grid place-items-center rounded-full hover:scale-110 duration-300 transition-[transform]; 
 }

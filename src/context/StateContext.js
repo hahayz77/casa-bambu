@@ -8,8 +8,9 @@ export const StateContext = ( { children } ) => {
     const [showCart, setShowCart] = useState(false);
     const [navRoute, setNavRoute] = useState("");
     const [cart, setCart] = useState([1,1,1,1,1,1]);
+    const [miniCarousel, setMiniCarousel] = useState(['/imgs/hero01.jpg','/imgs/hero02.jpg','/imgs/hero03.jpg','/imgs/hero04.jpg','/imgs/hero05.jpg']);
+    const [miniCarouselIndex, setMiniCarouselIndex] = useState(0);
 
-    
     RouterDataControl(setNavRoute,setShowCart);
 
     return(
@@ -20,6 +21,10 @@ export const StateContext = ( { children } ) => {
             cart, 
             setCart,
             navRoute,
+            miniCarousel,
+            setMiniCarousel,
+            miniCarouselIndex,
+            setMiniCarouselIndex
         }}>
         {children}
         </Context.Provider>
