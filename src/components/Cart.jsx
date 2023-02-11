@@ -13,9 +13,9 @@ export function Cart() {
                     <div className="cart_header"><h1>Carrinho</h1></div>
                     <div className="cart_items">
                         {cart.map((e,index)=>{return(
-                            <div className="item_cart">
+                            <div className="item_cart" key={index}>
                                 <div className="cart_img">
-                                    <Image src='/imgs/hero04.jpg' width="460" height="460"/>
+                                    <Image src='/imgs/hero04.jpg' width="460" height="460" alt="cart_img"/>
                                 </div>
                                 <div className="cart_item_content">
                                     <div className="cart_item_title">Item {index}</div>
@@ -27,7 +27,7 @@ export function Cart() {
                                         </div>
                                         <span>R$100,00</span>
                                     </div>
-                                <div className="cart_trash"><Image src='/trash.svg' width='30' height='30'/></div>
+                                <div className="cart_trash"><Image src='/trash.svg' width='30' height='30' alt="delete"/></div>
                                 </div>    
                             </div>
                         )})}

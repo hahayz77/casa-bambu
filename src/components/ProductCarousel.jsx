@@ -15,7 +15,7 @@ export function ProductCarousel() {
         <>
             <h1 className="title" id="outrosprodutos">Outros Produtos</h1>
             <Swiper
-                id="productcarousel"
+                id="productscarousel"
                 slidesPerView={'auto'}
                 spaceBetween={10}
                 speed={800}
@@ -30,9 +30,9 @@ export function ProductCarousel() {
                 modules={[FreeMode, Autoplay, Pagination]}>
                 {repeat.map((e,index)=>{
                     return(
-                        <SwiperSlide className="slide_item">
+                        <SwiperSlide className="slide_item" key={index}>
                           <div className="product_carousel_img">
-                            <Link href={`/produto/produto%20${index+1}`}><Image src='/imgs/hero05.jpg' width='600' height='600' /></Link>
+                            <Link href={`/produto/produto%20${index+1}`}><Image src='/imgs/hero05.jpg' width='600' height='600' alt="slide_product"/></Link>
                           </div>
                           <div className="product_carousel_content">
                             <span>Item {index+1}</span>

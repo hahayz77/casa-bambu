@@ -29,7 +29,7 @@ export function ProductMiniCarousel() {
                 className="product_mini_slider">
                 {repeat.map((e,index)=>{
                     return(
-                        <SwiperSlide className="mini_slide_item"><Link href='#' onClick={()=>{setMiniCarouselIndex(index)}}><Image src={miniCarousel[index]} width='600' height='600' /></Link></SwiperSlide>
+                        <SwiperSlide className="mini_slide_item" key={index}><Link href='#' onClick={()=>{setMiniCarouselIndex(index)}}><Image src={miniCarousel[index]} width='600' height='600' alt="min_carousel"/></Link></SwiperSlide>
                     )
                 })}
             </Swiper>

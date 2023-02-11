@@ -16,7 +16,7 @@ export function Nav() {
                     <Link href="/sobre" className={`nav_text ${navRoute === '/sobre' ? 'nav_active' : ''}`}>Sobre</Link>
                 </div>
                 {/* <-- Logo --> */}
-                <figure className="logo h-20 md:h-24 pt-3 z-10 bg-white w-[100px] md:w-[130px]"><Image className='mx-auto w-[80px] md:w-[90px]' src="/logo.svg" alt="me" width="120" height="300"></Image></figure>
+                <figure className="logo h-20 md:h-24 pt-3 z-10 bg-white w-[100px] md:w-[130px]"><Image className='mx-auto w-[80px] md:w-[90px]' src="/logo.svg" alt="logo" width="120" height="300"></Image></figure>
                 <div className="navegation flex">
                     <Link href="/produtos" className={`nav_text ${navRoute === '/produtos' ? 'nav_active' : ''}`}>Produtos</Link>
                     <Link href="/contato" className={`nav_text ${navRoute === '/contato' ? 'nav_active' : ''}`}>Contato</Link>
@@ -24,7 +24,7 @@ export function Nav() {
             </nav>
                 {/* <-- CART --> */}
                 <div className='cart absolute top-0 right-0 h-20 px-3 py-3'>
-                    <Link href="#cart" className='hover:scale-110' onClick={()=>{setShowCart(true)}}>
+                    <Link href="#nav" className='hover:scale-110' onClick={()=>{setShowCart(true)}}>
                         <figure className='relative top-3 md:top-5 right-2'><Image className='w-[26px] md:w-[36px]' src="/cart.svg" alt="me" width="36" height="36"></Image></figure>
                         <span className='bg-green text-white rounded-full h-[13px] md:h-4 w-4 text-center text-[8px] md:text-[10px] absolute top-2 md:top-4 right-4'>10</span>
                     </Link>
@@ -34,7 +34,7 @@ export function Nav() {
                 <span onClick={()=>{setActiveMenu(!activemenu)}}>
                     <Image className={`bt_side_menu absolute top-0 left-[12px] h-[60px] w-[30px] ${activemenu === true ? 'openmenu' : 'closemenu'}`} src="/menu-icon.svg" alt="me" width="100" height="100"></Image>
                     </span>
-                <figure className="h-20 p-1 w-[80px] block mx-auto"><Image className='mx-auto w-[80px]' src="/logo.svg" alt="me" width="120" height="300"></Image></figure>
+                <figure className="h-20 p-1 w-[80px] block mx-auto"><Image className='mx-auto w-[80px]' src="/logo.svg" alt="logo" width="120" height="300"></Image></figure>
             </nav>
             {/* <-- Small Nav --> */}
             <div className={`small_nav ${activemenu === true ? 'activemenu' : 'hidemenu'} `}>

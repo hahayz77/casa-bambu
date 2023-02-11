@@ -28,19 +28,19 @@ export function Carousel() {
         className="carousel w-full"
       >
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero01.jpg" height='2000' width='2000' />
+          <Image className="hero_item" src="/imgs/hero01.jpg" height='2000' width='2000' alt="slide_img"/>
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero02.jpg" height='2000' width='2000' />
+          <Image className="hero_item" src="/imgs/hero02.jpg" height='2000' width='2000' alt="slide_img"/>
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero03.jpg" height='2000' width='2000' />
+          <Image className="hero_item" src="/imgs/hero03.jpg" height='2000' width='2000' alt="slide_img"/>
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero04.jpg" height='2000' width='2000' />
+          <Image className="hero_item" src="/imgs/hero04.jpg" height='2000' width='2000' alt="slide_img"/>
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero05.jpg" height='2000' width='2000' />
+          <Image className="hero_item" src="/imgs/hero05.jpg" height='2000' width='2000' alt="slide_img"/>
         </SwiperSlide>
       </Swiper>
     </>

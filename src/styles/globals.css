@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span{
 }
 
 .title{
-  @apply text-3xl md:text-4xl text-rose text-center my-16 mb-12 lg:mb-16 uppercase pt-8;
+  @apply text-3xl md:text-4xl text-rose text-center my-16 mb-12 lg:mb-16 uppercase pt-8 font-bold;
 }
 
 a {
@@ -264,12 +264,7 @@ a:hover, .cart:hover{
 }
 
 
-/*######################## Product ########################*/
-
-.product_box{
-  @apply w-[200px] h-[200px] bg-bege rounded-3xl overflow-hidden;
-  border-bottom: 2px solid #c37c7c;
-}
+/*######################## Favorites ########################*/
 
 .fav_item{
   @apply hover:scale-105 transition-all duration-500 m-2;
@@ -277,6 +272,26 @@ a:hover, .cart:hover{
 
 .fav_item img{
   @apply object-cover w-[90vw] h-auto sm:w-full sm:h-32 md:h-48;
+}
+
+.full_img {
+  @apply  grid place-items-center z-30 fixed top-0 left-0 bottom-0 right-0 overflow-hidden;
+ }
+
+ .full_img figure{
+  @apply z-30 h-[94vh];
+ }
+
+.full_img figure img{
+ @apply  w-auto h-full object-contain rounded-3xl;
+}
+
+.x_mask_full_img{
+ @apply  fixed top-4 right-4 z-40 bg-white h-12 w-12 grid place-items-center rounded-full text-rose text-2xl shadow-xl cursor-pointer hover:scale-110 duration-300 transition-[transform];
+}
+
+.mask_full_img{
+ @apply  bg-black opacity-90 fixed top-0 left-0 z-30 w-full h-full cursor-pointer;
 }
 
 /*######################## Categories ########################*/
@@ -293,7 +308,6 @@ a:hover, .cart:hover{
   @apply hover:scale-110 transition-all duration-700 overflow-hidden;
 }
 
-
 .categories{
   @apply flex flex-row justify-evenly align-middle flex-wrap;
 }
@@ -307,7 +321,7 @@ a:hover, .cart:hover{
 }
 
 .cat_description{
-  @layer text-lg title-font font-medium mb-3;
+  @apply text-lg font-medium mb-3;
 }
 
 /*######################## Galery ########################*/
@@ -336,7 +350,7 @@ a:hover, .cart:hover{
 }
 
 
-/*######################## Product ########################*/
+/*######################## Single Product ########################*/
 
 .product_container{
  @apply  p-6 pt-10 sm:pt-20 flex flex-wrap;
@@ -401,7 +415,49 @@ a:hover, .cart:hover{
 }
 
 
-#productcarousel{
+/*######################## All ProductS ########################*/
+
+#all_products{
+  @apply flex flex-wrap gap-6 py-16 px-6 justify-center align-middle;
+}
+
+.products_wrapper .products_content{
+  @apply bg-opacity-90;
+}
+
+.products_wrapper:nth-child(3n) .products_content{
+  @apply text-white bg-rose bg-opacity-90;
+}
+
+.products_wrapper:nth-child(2n) .products_content{
+  @apply text-white bg-black bg-opacity-90;
+}
+
+.products_wrapper:nth-child(4n) .products_content{
+  @apply text-white bg-green bg-opacity-90;
+}
+
+.products_wrapper{
+  @apply flex flex-col flex-nowrap relative overflow-hidden rounded-xl hover:scale-105 duration-300 transition-[transform];
+}
+
+.products_img{
+ @apply  w-60 h-60 bg-green;
+}
+
+.products_img img{
+  @apply  w-full h-full object-cover hover:scale-110 duration-300 transition-[transform];
+ }
+
+.products_content{
+ @apply  bg-white absolute top-0 left-6 right-6 py-1 rounded-b-lg shadow-lg grid place-items-center;
+}
+
+.btn_products_add{
+ @apply  absolute bottom-3 right-3 text-2xl bg-white text-rose h-10 w-10 grid place-items-center rounded-full hover:scale-110 duration-300 transition-[transform] cursor-pointer;
+}
+
+#productscarousel{
   @apply px-6 pt-2 pb-10 md:py-20 my-16 md:my-20;
 }
 
@@ -418,5 +474,5 @@ a:hover, .cart:hover{
 }
 
 .add_cart_carousel{
- @apply  absolute right-[15px] bottom-[10px] bg-rose text-white h-[40px] w-[40px] grid place-items-center rounded-full hover:scale-110 duration-300 transition-[transform]; 
+ @apply  absolute right-[15px] bottom-[10px] bg-rose text-white text-2xl h-[40px] w-[40px] grid place-items-center rounded-full hover:scale-110 duration-300 transition-[transform]; 
 }

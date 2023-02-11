@@ -15,7 +15,7 @@ export function ProductCategories() {
             </div>
             <div className="categories">
                 {repeat.map((e, index)=>{return(
-                    <div className="categories_div"> <Link href={`#${index}`}>
+                    <div className="categories_div" key={index+Date.now()}> <Link href={`#${index}`}>
                         <div className="categories_items bg-special">
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10" viewBox="0 0 24 24">
                                 <circle cx="6" cy="6" r="3"></circle>
@@ -32,7 +32,7 @@ export function ProductCategories() {
             </div>
             <div className="fav_categories bg-special">
                 {repeat2.map((e,index)=>{return(
-                    <Link href={`#${index}`}><div className="fav_item"><Image src='/imgs/hero01.jpg' height='1000' width='1000' /></div></Link>
+                    <Link href={`#${index}`} key={index}><div className="fav_item"><Image src='/imgs/hero01.jpg' height='1000' width='1000' alt="fav_img"/></div></Link>
                 )})}
             </div>
             <div className="mb-40">
