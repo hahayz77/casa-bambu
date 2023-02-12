@@ -21,6 +21,8 @@ export function AllProducts() {
                                 <span>R$ 80,00</span> 
                             </div>
                             <span className="btn_products_add" onClick={()=>{setShowCart(true)}}>+</span>
+                            <figure className="all_products_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
+                            <span className="discount_text">-12%</span>
                         </Link>
                     </div>
                     )

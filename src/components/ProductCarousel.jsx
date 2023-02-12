@@ -40,6 +40,8 @@ export function ProductCarousel() {
 									<span className="line-through">R$ 100,00</span>
 									<span>R$ 90,00</span>
 								</div>
+                                <figure className="product_carousel_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
+                                <span className="product_carousel_discount_text">-12%</span>
 							</Link>
 							<Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{setShowCart(true)}}>+</span></Link>
                         </SwiperSlide>

@@ -22,8 +22,14 @@ export function Product(props) {
                 <div className="product_content">
                     <span className="product_name">{props.name}</span>
                     <div className="product_prices">
-                        <span className="product_price">R$ 100,00</span>
-                        <span className="product_discount">R$ 90,00</span>
+                        <div className="prices_line">
+                            <span className="product_price">R$ 100,00</span>
+                            <span className="product_discount">R$ 90,00</span>
+                        </div>
+                        <div className="product_discount_container">
+                            <figure className="product_discount_img"><Image src='/discount.svg' width='200' height='200'></Image></figure>
+                            <span className="product_discount_text">-82%</span>
+                        </div>
                     </div>
                     <span>product description</span>
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti deserunt ex dicta quis! Fugiat numquam hic officia, at, quam omnis a, asperiores ducimus nemo libero recusandae dolorem laudantium iusto vel.</span>
