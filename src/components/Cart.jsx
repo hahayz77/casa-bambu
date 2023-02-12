@@ -31,6 +31,10 @@ export function Cart() {
                                 </div>    
                             </div>
                         )})}
+                        <div className="total_price">
+                            <span>Total : </span>
+                            <span>R$ 800,00</span>
+                        </div>
                         <div className="cart_buy_btn">
                             <button> Finalizar Comprar </button>
                         </div>

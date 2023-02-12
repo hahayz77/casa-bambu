@@ -21,7 +21,10 @@ export function Product(props) {
                 </div>
                 <div className="product_content">
                     <span className="product_name">{props.name}</span>
-                    <span className="product_price">R$ 100,00</span>
+                    <div className="product_prices">
+                        <span className="product_price">R$ 100,00</span>
+                        <span className="product_discount">R$ 90,00</span>
+                    </div>
                     <span>product description</span>
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti deserunt ex dicta quis! Fugiat numquam hic officia, at, quam omnis a, asperiores ducimus nemo libero recusandae dolorem laudantium iusto vel.</span>
                     <div className="product_controls">
@@ -34,7 +37,7 @@ export function Product(props) {
             </div>
             {fullImg && 
                 <>
-                    <div className="full_img transition-all duration-300">
+                    <div id="fullimg" className="full_img transition-all duration-300 modal-active">
                         <div className="mask_full_img" onClick={()=>{setFullImg(false)}}></div>
                         <figure><Image src={miniCarousel[miniCarouselIndex]} height='1000' width='1000' alt="mini_carousel"/></figure>
                     </div>

@@ -231,6 +231,10 @@ a:hover, .cart:hover{
  @apply  absolute bottom-2 right-2 lg:bottom-5 lg:right-5 cursor-pointer hover:scale-110 transition-[transform] duration-300;
 }
 
+.total_price{
+ @apply  text-xl text-black text-center mt-8 py-3 bg-white bg-opacity-70 rounded-lg;
+}
+
 /*######################## Carousel ########################*/
 
 .carousel{
@@ -381,8 +385,12 @@ a:hover, .cart:hover{
 }
 
 .product_price{
- @apply  text-2xl;
+ @apply  text-2xl text-opacity-70 text-white mr-6 line-through;
 }
+
+.product_discount{
+  @apply  text-3xl font-bold;
+ }
 
 .product_controls{
  @apply  flex flex-row justify-center w-full py-6;
@@ -418,18 +426,18 @@ a:hover, .cart:hover{
 /*######################## All ProductS ########################*/
 
 #all_products{
-  @apply flex flex-wrap gap-6 py-16 px-6 justify-center align-middle;
+  @apply flex flex-wrap gap-6 py-16 px-3 md:px-6 justify-center align-middle;
 }
 
 .products_wrapper .products_content{
-  @apply bg-opacity-90;
-}
-
-.products_wrapper:nth-child(3n) .products_content{
-  @apply text-white bg-rose bg-opacity-90;
+  @apply text-black bg-opacity-90;
 }
 
 .products_wrapper:nth-child(2n) .products_content{
+  @apply text-white bg-rose bg-opacity-90;
+}
+
+.products_wrapper:nth-child(3n) .products_content{
   @apply text-white bg-black bg-opacity-90;
 }
 
@@ -442,7 +450,7 @@ a:hover, .cart:hover{
 }
 
 .products_img{
- @apply  w-60 h-60 bg-green;
+ @apply  w-60 h-60 bg-white;
 }
 
 .products_img img{
@@ -450,7 +458,7 @@ a:hover, .cart:hover{
  }
 
 .products_content{
- @apply  bg-white absolute top-0 left-6 right-6 py-1 rounded-b-lg shadow-lg grid place-items-center;
+ @apply  bg-white absolute top-0 left-6 right-6 pb-1 pt-3 rounded-b-lg shadow-lg grid place-items-center;
 }
 
 .btn_products_add{
@@ -465,8 +473,17 @@ a:hover, .cart:hover{
  @apply  max-w-[400px] rounded-lg overflow-hidden
 }
 
+.slide_item:nth-child(2n) a .product_carousel_content{
+ @apply bg-rose bg-opacity-70 text-white
+}
+
+.slide_item:nth-child(3n) a .product_carousel_content{
+  @apply bg-black bg-opacity-80 text-white
+}
+
+
 .product_carousel_img img{
-  @apply w-auto min-h-[300px] object-cover min-w-[200px];
+  @apply w-auto min-h-[300px] object-cover min-w-[200px] hover:scale-110 duration-300 transition-[transform];
 }
 
 .product_carousel_content{

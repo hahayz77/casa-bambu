@@ -10,16 +10,19 @@ export function AllProducts() {
             <div id="all_products" className="bg-special">
             {repeat.map((e,index)=>{
                 return(
-                        <div className="products_wrapper">
+                    <div className="products_wrapper">
+                        <Link href={`/produto/Produto%20-%20${index+1}`}>
                             <div className="products_img">
-                                <Link href={`/produto/Produto%20-%20${index+1}`}><Image src='/imgs/hero05.jpg' width='600' height='600' alt="single_product"/></Link>
+                                <Image src='/imgs/hero05.jpg' width='600' height='600' alt="single_product"/>
                             </div>
                             <div className="products_content">
-                                <span>Item {index+1}</span>
-                                <span>R$ 100,00</span>
+                                <span className="font-bold">Item {index+1}</span>
+                                <span className="line-through">R$ 100,00</span>
+                                <span>R$ 80,00</span> 
                             </div>
                             <span className="btn_products_add" onClick={()=>{setShowCart(true)}}>+</span>
-                        </div>
+                        </Link>
+                    </div>
                     )
                 })}
             </div>

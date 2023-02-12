@@ -31,14 +31,17 @@ export function ProductCarousel() {
                 {repeat.map((e,index)=>{
                     return(
                         <SwiperSlide className="slide_item" key={index}>
-                          <div className="product_carousel_img">
-                            <Link href={`/produto/produto%20${index+1}`}><Image src='/imgs/hero05.jpg' width='600' height='600' alt="slide_product"/></Link>
-                          </div>
-                          <div className="product_carousel_content">
-                            <span>Item {index+1}</span>
-                            <span>R$ 100,00</span>
-                          </div>
-                          <Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{setShowCart(true)}}>+</span></Link>
+							<Link href={`/produto/produto%20${index+1}`}>
+								<div className="product_carousel_img">
+									<Image src='/imgs/hero05.jpg' width='600' height='600' alt="slide_product"/>
+								</div>
+								<div className="product_carousel_content">
+									<span className="font-bold">Item {index+1}</span>
+									<span className="line-through">R$ 100,00</span>
+									<span>R$ 90,00</span>
+								</div>
+							</Link>
+							<Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{setShowCart(true)}}>+</span></Link>
                         </SwiperSlide>
                     )
                 })}
