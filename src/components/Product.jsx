@@ -28,7 +28,7 @@ export function Product(props) {
                         </div>
                         <div className="product_discount_container">
                             <figure className="product_discount_img"><Image src='/discount.svg' width='200' height='200'></Image></figure>
-                            <span className="product_discount_text">-82%</span>
+                            <span className="product_discount_text">-10%</span>
                         </div>
                     </div>
                     <span>product description</span>

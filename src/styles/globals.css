@@ -267,6 +267,14 @@ a:hover, .cart:hover{
   background: var(--rose) !important;
 }
 
+.nextui-pagination-highlight--active{
+  @apply border-white border-2
+}
+
+.search_wrapper label{
+  @apply opacity-80 text-2xl;
+}
+
 
 /*######################## Favorites ########################*/
 
@@ -449,6 +457,38 @@ a:hover, .cart:hover{
   @apply flex flex-wrap gap-6 py-16 px-3 md:px-6 justify-center align-middle;
 }
 
+.search_wrapper{
+ @apply  w-full flex justify-center relative;
+}
+
+.search{
+ @apply  w-[90%] md:w-[50%] py-8 text-white;
+}
+
+.search input{
+  @apply  w-[70%];
+ }
+
+.search label, .search button, .search input{
+  @apply text-white;
+}
+
+.search input{
+  @apply w-full;
+}
+
+.search_result{
+ @apply  bg-white absolute left-0 bottom-0 h-24 overflow-y-auto text-black rounded-lg w-full p-6 translate-y-[70%] z-30
+}
+
+.search_ocult{
+ @apply  hidden;
+}
+
+.search_result span{
+  @apply block;
+}
+
 .products_wrapper .products_content{
   @apply text-black bg-opacity-90;
 }
@@ -529,3 +569,7 @@ a:hover, .cart:hover{
  .product_carousel_discount_text{
   @apply  absolute top-8 right-6 text-white text-2xl
  } 
+
+ .pagination{
+  @apply  inline-flex w-full justify-center pt-8;
+ }
