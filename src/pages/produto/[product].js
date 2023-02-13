@@ -13,7 +13,8 @@ export default function SingleProduct() {
             <Nav/>
             <Cart/>
             <Product name={product}/>
-            <ProductCarousel/>        
+            <h1 className="title" id="outrosprodutos">Outros Produtos</h1>
+            <ProductCarousel title={"Outros Produtos"}/>        
             <Footer/>
         </>
     )

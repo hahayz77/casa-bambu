@@ -12,6 +12,7 @@ export default function Index() {
                 <Nav/>
                 <Cart/>
                 <AllProducts/>
+                <h1 className="title" id="outrosprodutos">Produtos em Destaque</h1>
                 <ProductCarousel/>
                 <Footer/>
             </StateContext>

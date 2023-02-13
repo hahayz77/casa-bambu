@@ -8,12 +8,11 @@ import Link from "next/link";
 import { useStateContext } from "@/context/StateContext";
 
 
-export function ProductCarousel() {
+export function ProductCarousel(props) {
   const { setShowCart } = useStateContext();
     const repeat = [1,1,1,1,1,1,1,1];
     return (
         <>
-            <h1 className="title" id="outrosprodutos">Outros Produtos</h1>
             <Swiper
                 id="productscarousel"
                 slidesPerView={'auto'}

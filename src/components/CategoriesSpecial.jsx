@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 export function CategoriesSpecial() {
     const [selected1, setSelected1] = useState(new Set(["Todos os Produtos"]));
     const [selected2, setSelected2] = useState(new Set(["Para toda Casa"]));
-    const [selected3, setSelected3] = useState(new Set(["Todos as Cores"]));
+    const [selected3, setSelected3] = useState(new Set(["Todos os Tons"]));
     const selectedValue1 = useMemo(() => Array.from(selected1).join(", ").replaceAll("_", " "),[selected1]);
     const selectedValue2 = useMemo(() => Array.from(selected2).join(", ").replaceAll("_", " "),[selected2]);
     const selectedValue3 = useMemo(() => Array.from(selected3).join(", ").replaceAll("_", " "),[selected3]);
@@ -66,7 +66,7 @@ export function CategoriesSpecial() {
                         selectedKeys={selected3}
                         onSelectionChange={setSelected3}
                     >
-                        <Dropdown.Item key="todas as cores">Todas as Cores</Dropdown.Item>
+                        <Dropdown.Item key="todas os tons">Todas os Tons</Dropdown.Item>
                         <Dropdown.Item key="branco">Claros</Dropdown.Item>
                         <Dropdown.Item key="escuros">Escuros</Dropdown.Item>
                         <Dropdown.Item key="metálicos">Metálicos</Dropdown.Item>
