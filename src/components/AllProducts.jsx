@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { Categories } from "./Categories";
+import { CategoriesSpecial } from "./CategoriesSpecial";
 
 export function AllProducts() {
     const { setShowCart } =  useStateContext();
@@ -21,7 +23,7 @@ export function AllProducts() {
             <div id="all_products" className="bg-special">
                <div className="search_wrapper">
                     <Row className="search" justify="center" align="center">
-                        <Input clearable underlined labelPlaceholder="Name" initialValue={inputValue} size="xl" color="secondary" label="Pesquisar" onFocus={()=>{setSearch(true)}} onBlur={()=>{setTimeout(() => {setSearch(false);}, "200")}} onChange={(e)=>{setInputValue(e.target.value)}} onKeyDown={(e)=>{if(e.key === "Enter"){handlerEnter(e.key)}}} css={{width:'100%'}}/>
+                        <Input clearable underlined labelPlaceholder="Name" initialValue={inputValue} size="xl" color="secondary" label="Pesquisar" onFocus={()=>{setSearch(true)}} onBlur={()=>{setTimeout(() => {setSearch(false)}, "200")}} onChange={(e)=>{setInputValue(e.target.value)}} onKeyDown={(e)=>{if(e.key === "Enter"){handlerEnter(e.key)}}} css={{width:'100%'}}/>
                         {search === true  && inputValue !== '' &&
                             <div className={` ${search === true ? 'search_result' : 'search_ocult'}`} onFocus={()=>{setSearch(true)}}>
                                 <Link href={`/produto/${inputValue}1`}><span>{inputValue}</span></Link>
@@ -30,6 +32,12 @@ export function AllProducts() {
                             </div>
                         }
                     </Row>
+               </div>
+               <div className="filter_wrapper w-full">
+                    <div className="Filter">
+                        <Categories bg={'bg-white'} text={'text-rose'} description={'text-white'}/>
+                        <CategoriesSpecial/>
+                    </div>
                </div>
                 {repeat.map((e,index)=>{
                     return(

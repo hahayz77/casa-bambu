@@ -81,6 +81,21 @@ a:hover, .cart:hover{
   font-weight: medium;
 }
 
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+ 
+::-webkit-scrollbar-thumb {
+  @apply bg-rose rounded-sm;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-black;
+}
 
 /*########################  Nav ##########################*/
 
@@ -232,7 +247,7 @@ a:hover, .cart:hover{
 }
 
 .total_price{
- @apply  text-xl text-black text-center mt-8 py-3 bg-white bg-opacity-70 rounded-lg;
+ @apply  text-xl text-black text-center mt-8 py-3 bg-white bg-opacity-70 rounded-lg shadow-lg;
 }
 
 /*######################## Carousel ########################*/
@@ -329,13 +344,20 @@ a:hover, .cart:hover{
 }
 
 .categories_items{
-  @apply w-20 h-20 inline-flex items-center justify-center rounded-full text-white mb-5 flex-shrink-0;
+  @apply w-20 h-20 inline-flex items-center justify-center rounded-full mb-5 flex-shrink-0;
 }
 
-.cat_description{
+.categories_description{
   @apply text-lg font-medium mb-3;
 }
 
+.filter .nextui-button{
+  @apply bg-white
+}
+
+.filter {
+  @apply flex justify-center gap-6 mb-12 mt-4;
+}
 /*######################## Galery ########################*/
 
 .galery{
@@ -466,7 +488,7 @@ a:hover, .cart:hover{
 }
 
 .search input{
-  @apply  w-[70%];
+  @apply  w-[70%] text-base;
  }
 
 .search label, .search button, .search input{
@@ -478,7 +500,11 @@ a:hover, .cart:hover{
 }
 
 .search_result{
- @apply  bg-white absolute left-0 bottom-0 h-24 overflow-y-auto text-black rounded-lg w-full p-6 translate-y-[70%] z-30
+ @apply  bg-white absolute left-0 bottom-0 max-h-24 overflow-y-auto text-black rounded-xl w-full p-6 translate-y-[70%] z-30 border-[1px]
+}
+
+.search_result span{
+  @apply hover:bg-black hover:bg-opacity-10 rounded-lg p-1
 }
 
 .search_ocult{
