@@ -27,6 +27,7 @@ export function CategoriesSpecial() {
                     >
                         <Dropdown.Item key="todos os produtos">Todos Os Produtos</Dropdown.Item>
                         <Dropdown.Item key="melhores descontos">Melhores Descontos</Dropdown.Item>
+                        <Dropdown.Item key="destaques">Destaques</Dropdown.Item>
                         <Dropdown.Item key="mais vendidos">Mais Vendidos</Dropdown.Item>
                         <Dropdown.Item key="mais caros">Mais Caros</Dropdown.Item>
                         <Dropdown.Item key="mais baratos">Mais Baratos</Dropdown.Item>
@@ -47,7 +48,7 @@ export function CategoriesSpecial() {
                     >
                         <Dropdown.Item key="para toda casa">Para Toda Casa</Dropdown.Item>
                         <Dropdown.Item key="sala de estar">Sala de Estar</Dropdown.Item>
-                        <Dropdown.Item key="quartos">Quartos</Dropdown.Item>
+                        <Dropdown.Item key="quartos">Quarto</Dropdown.Item>
                         <Dropdown.Item key="cozinha">Cozinha</Dropdown.Item>
                         <Dropdown.Item key="banheiro">Banheiro</Dropdown.Item>
                         <Dropdown.Item key="outros">Outros</Dropdown.Item>
@@ -69,6 +70,7 @@ export function CategoriesSpecial() {
                         <Dropdown.Item key="todas os tons">Todas os Tons</Dropdown.Item>
                         <Dropdown.Item key="branco">Claros</Dropdown.Item>
                         <Dropdown.Item key="escuros">Escuros</Dropdown.Item>
+                        <Dropdown.Item key="testurizados">Testurizados</Dropdown.Item>
                         <Dropdown.Item key="metálicos">Metálicos</Dropdown.Item>
                         <Dropdown.Item key="foscos">Foscos</Dropdown.Item>
                     </Dropdown.Menu>

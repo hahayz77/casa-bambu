@@ -22,7 +22,7 @@ body {
   scroll-behavior: smooth !important;
 }
 
-h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span{
+h1, h2, h3, h4, h5, .nav_text, .menu_item, .small_nav span, p{
   font-family: 'Comfortaa-Bold', Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -131,7 +131,7 @@ a:hover, .cart:hover{
 }
 
 .small_nav{
-  @apply absolute top-[62px] h-fit w-full pb-10 z-[201] bg-bege;
+  @apply absolute top-[62px] h-fit w-full pb-10 z-[201] bg-white;
 }
 
 .activemenu{
@@ -341,19 +341,23 @@ a:hover, .cart:hover{
 }
 
 .categories{
-  @apply flex flex-row justify-evenly items-center flex-wrap;
+  @apply flex flex-row justify-evenly items-center flex-wrap mx-10;
 }
 
 .categories_div{
-  @apply p-4 flex flex-col text-center items-center hover:scale-105 duration-300 transition-all;
+  @apply p-2 sm:pb-10 flex flex-col text-center items-center hover:scale-105 duration-300 transition-all;
 }
 
 .categories_items{
-  @apply w-20 h-20 inline-flex items-center justify-center rounded-full mb-5 flex-shrink-0;
+  @apply inline-flex items-center justify-center rounded-full mb-5 flex-shrink-0 p-3;
+}
+
+.categories_items svg{
+  @apply h-6 sm:h-10 lg:h-16 w-auto md:p-2;
 }
 
 .categories_description{
-  @apply text-lg font-medium mb-3;
+  @apply text-base mb-3;
 }
 
 .filter .nextui-button{
@@ -375,35 +379,32 @@ a:hover, .cart:hover{
 }
 
 .steps_container{
- @apply  gap-16 md:gap-20 flex flex-wrap flex-row items-center justify-center text-white;
+ @apply  flex flex-wrap flex-row items-center justify-center text-white px-6 lg:px-32 mx-4
 }
 
+
 .step_content{
- @apply  flex flex-col lg:flex-row w-full px-8 sm:px-32 md:px-48 lg:px-64 gap-8 items-center justify-center relative;
+ @apply  flex flex-col lg:flex-row w-full items-center justify-center px-10 pr-0 md:pr-10 pb-20 relative border-l-[3px] border-white;
 }
 
 .step_figure{
-  @apply bg-white bg-opacity-50 rounded-full overflow-visible;
+  @apply bg-white rounded-full overflow-visible absolute top-0 left-0 translate-x-[-50%];
 }
 
 .step_figure img{
-  @apply  h-auto max-w-[150px];
+  @apply h-16 w-auto p-1;
 }
 
 .step_title{
- @apply  text-xl relative inline-flex;
+ @apply  text-xl relative inline-flex border-b-[3px] border-white;
 }
 
-.step_content hr{
- @apply  bg-white h-[0.15rem] w-[105%] rounded-full absolute bottom-0 -left-1;
-}
+.step_content p{
+  @apply  text-base;
+ }
 
-.step_description{
-  @apply text-justify;
-}
-
-.vr{
-  @apply w-[0.15rem] h-10 lg:h-16 absolute bottom-0 right-0 translate-x-[-50vw] translate-y-[120%] border-white border-dotted border-l-4;
+.steps_cta .btn_cta_rose{
+ @apply  px-6 m-0 ml-3 sm:ml-0 lg:translate-x-[55%] hover:translate-y-[0.2rem];
 }
 
 /*######################## Galery ########################*/
@@ -413,7 +414,7 @@ a:hover, .cart:hover{
 }
 
 .galery_grid{
-  @apply px-6 pb-12 flex flex-col md:grid lg:grid-flow-row md:grid-cols-2 md:grid-rows-[repeat(5,minmax(100px,400px))] lg:grid-cols-3 lg:grid-rows-[repeat(4,minmax(100px,400px))] gap-6;
+  @apply px-2 md:px-6 pb-6 md:pb-10 grid grid-flow-row grid-cols-2 grid-rows-[repeat(5,minmax(100px,200px))] lg:grid-cols-3 lg:grid-rows-[repeat(4,minmax(100px,400px))] gap-3 lg:gap-6;
 }
 
 .galery_grid img{
@@ -563,28 +564,32 @@ a:hover, .cart:hover{
   @apply block;
 }
 
-.products_wrapper .products_content{
-  @apply text-black bg-opacity-90;
-}
-
-.products_wrapper:nth-child(2n) .products_content{
-  @apply text-white bg-rose bg-opacity-90;
-}
-
-.products_wrapper:nth-child(3n) .products_content{
-  @apply text-white bg-black bg-opacity-90;
-}
-
-.products_wrapper:nth-child(4n) .products_content{
-  @apply text-white bg-green bg-opacity-90;
-}
-
 .products_wrapper{
   @apply flex flex-col flex-nowrap relative overflow-hidden rounded-xl w-full sm:w-fit;
 }
 
+.products_wrapper:nth-child(n) .products_content{
+  @apply text-black text-opacity-80 bg-white bg-opacity-90;
+}
+
+.products_wrapper:nth-child(2) .products_content{
+  @apply text-white text-opacity-80 bg-rose bg-opacity-90;
+}
+
+.products_wrapper:nth-child(3n) .products_content{
+  @apply text-white text-opacity-80 bg-black bg-opacity-90;
+}
+
+.products_wrapper:nth-child(4n) .products_content{
+  @apply text-white text-opacity-80 bg-green bg-opacity-90;
+}
+
+.products_content span{
+  @apply text-sm;
+}
+
 .products_img{
- @apply  w-full sm:w-60 sm:h-60 bg-white;
+ @apply  w-full sm:h-48 bg-white;
 }
 
 .products_img img{
@@ -604,11 +609,11 @@ a:hover, .cart:hover{
 }
 
 .discount_text{
- @apply  absolute bottom-7 left-5 text-white text-base
+ @apply  absolute bottom-7 left-5 text-white text-base;
 } 
 
 .nextui-dropdown-menu{
-  @apply  z-20;
+  @apply z-20;
 }
 
 #productscarousel{
@@ -616,23 +621,28 @@ a:hover, .cart:hover{
 }
 
 .slide_item{
- @apply  max-w-[400px] rounded-lg overflow-hidden
+  @apply  max-w-[400px] rounded-lg overflow-hidden
+}
+
+
+.slide_item:nth-child(n) a .product_carousel_content{
+ @apply bg-rose bg-opacity-70 text-white text-opacity-80 flex flex-col absolute bottom-0 left-0 right-0 p-4;
 }
 
 .slide_item:nth-child(2n) a .product_carousel_content{
- @apply bg-rose bg-opacity-70 text-white
+  @apply bg-green bg-opacity-70;
 }
 
 .slide_item:nth-child(3n) a .product_carousel_content{
-  @apply bg-black bg-opacity-80 text-white
+  @apply bg-white bg-opacity-70 text-black text-opacity-80;
+}
+
+.slide_item:nth-child(4n) a .product_carousel_content{
+  @apply bg-black bg-opacity-70 text-white text-opacity-80;
 }
 
 .product_carousel_img img{
   @apply w-auto min-h-[300px] object-cover min-w-[200px] hover:scale-110 duration-300 transition-[transform];
-}
-
-.product_carousel_content{
- @apply  flex flex-col absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4 text-lg
 }
 
 .add_cart_carousel{
