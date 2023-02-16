@@ -5,16 +5,16 @@ import { Footer } from '@/components/Footer';
 import { Galery } from '@/components/Galery';
 import { Cart } from '@/components/Cart';
 import { Steps } from '@/components/Steps';
-import { client, urlFor } from '@/lib/SanityClient'
+import { client } from '@/lib/SanityClient'
 
 
-export default function Index({banners}) {
+export default function Index({banners, products}) {
     return (
         <>
             <Nav/>
             <Cart/>
             <Carousel banners={banners}/>
-            <ProductCategories/>
+            <ProductCategories products={products}/>
             <Steps/>
             <Galery/>
             <Footer/>
@@ -24,9 +24,12 @@ export default function Index({banners}) {
   
   export async function getStaticProps() {
     const banners = await client.fetch(`*[_type == "banners"]`);  
+    const products = await client.fetch(`*[_type == "products"]`);
+
     return {
       props: {
-        banners
+        banners,
+        products
       }
     };
   }

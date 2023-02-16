@@ -4,8 +4,7 @@ import { Categories } from "./Categories";
 import { ProductCarousel } from "./ProductCarousel";
 
 
-export function ProductCategories() {
-    const repeat2 = [1,1,1,1,1]
+export function ProductCategories({ products }) {
     
     return (
         <>
@@ -13,7 +12,7 @@ export function ProductCategories() {
                 <h1 className="title">CATEGORIAS</h1>
             </div>
             <Categories bg={'bg-special'} text={'text-white'} description={'text-rose'}/>
-            <ProductCarousel />
+            <ProductCarousel products={products}/>
             <div className="mb-40">
                     <Link href='/produtos'><button className="btn_cta bg-special">Ver mais os produtos</button></Link>
             </div>

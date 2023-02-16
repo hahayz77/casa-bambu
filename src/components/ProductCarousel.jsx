@@ -6,41 +6,34 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
 import { useStateContext } from "@/context/StateContext";
+import { urlFor } from "@/lib/SanityClient";
 
 
-export function ProductCarousel(props) {
-  const { setShowCart } = useStateContext();
-    const repeat = [1,1,1,1,1,1,1,1];
+export function ProductCarousel({products}) {
+    const { setShowCart } = useStateContext();
+    const featured = products.slice(0, 10); // Limit the number of products to carousel
     return (
         <>
             <Swiper
-                id="productscarousel"
-                slidesPerView={'auto'}
-                spaceBetween={10}
-                speed={800}
-                autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                }}
-                freeMode={true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[FreeMode, Autoplay, Pagination]}>
-                {repeat.map((e,index)=>{
+                id="productscarousel" slidesPerView={'auto'} spaceBetween={10} speed={800} autoplay={{ delay: 3000, disableOnInteraction: false, }} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode, Autoplay, Pagination]}>
+                {featured.map((e,index)=>{
                     return(
                         <SwiperSlide className="slide_item" key={index}>
 							<Link href={`/produto/produto%20${index+1}`}>
 								<div className="product_carousel_img">
-									<Image src='/imgs/hero05.jpg' width='600' height='600' alt="slide_product"/>
+									<Image src={urlFor(e?.image[0]).url()} width='600' height='600' alt="slide_product"/>
 								</div>
 								<div className="product_carousel_content">
-									<span className="font-bold">Item {index+1}</span>
-									<span className="line-through">R$ 100,00</span>
-									<span>R$ 90,00</span>
-								</div>
-                                <figure className="product_carousel_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
-                                <span className="product_carousel_discount_text">-12%</span>
+									<span className="font-bold">{e.name}</span>
+									{e.discount > 0 ? <span className="line-through">R$ {parseFloat(e.price).toFixed(2).replace(".",",")}</span> : null}
+                                    <span>R$ {parseFloat(parseFloat(e.price).toFixed(2)*(1-(e.discount)/100)).toFixed(2).replace(".",",")}</span>
+                                </div>
+                                {e.discount > 0 ? (
+                                    <>
+                                        <figure className="product_carousel_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
+                                        <span className="product_carousel_discount_text">-{e.discount}%</span>
+                                    </>
+                                ) : null}
 							</Link>
 							<Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{setShowCart(true)}}>+</span></Link>
                         </SwiperSlide>
