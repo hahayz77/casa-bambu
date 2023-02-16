@@ -7,9 +7,10 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { urlFor } from "@/lib/SanityClient";
 
 
-export function Carousel() {
+export function Carousel({banners}) {
   return (
     <>
       <Swiper
@@ -27,21 +28,13 @@ export function Carousel() {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="carousel w-full"
       >
-        <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero01.jpg" height='2000' width='2000' alt="slide_img"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero02.jpg" height='2000' width='2000' alt="slide_img"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero03.jpg" height='2000' width='2000' alt="slide_img"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero04.jpg" height='2000' width='2000' alt="slide_img"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image className="hero_item" src="/imgs/hero05.jpg" height='2000' width='2000' alt="slide_img"/>
-        </SwiperSlide>
+        {banners.map((e,index)=>{
+          return(
+            <SwiperSlide>
+              <Image key={index} className="hero_item" src={urlFor(e.imagem).url()} height='2000' width='2000' alt="slide_img"/>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </>
   );

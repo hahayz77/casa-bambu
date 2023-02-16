@@ -1,3 +1,3 @@
-import pet from './pet'
+import banners from './banners'
 
-export const schemaTypes = [pet]
+export const schemaTypes = [banners]

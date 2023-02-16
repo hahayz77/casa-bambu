@@ -1,7 +1,7 @@
 import { createClient } from "next-sanity";
 
 
-export default function Sanity({ pets }) {
+export default function Sanity({ banners }) {
     return (
       <>
         <header>
@@ -9,20 +9,20 @@ export default function Sanity({ pets }) {
         </header>
         <main>
           <h2>pets</h2>
-          {pets.length > 0 && (
+          {banners.length > 0 && (
             <ul>
-              {pets.map((pet) => (
+              {banners.map((pet) => (
                 <li key={pet._id}>{pet?.name}</li>
               ))}
             </ul>
           )}
-          {!pets.length > 0 && <p>No pets to show</p>}
-          {pets.length > 0 && (
+          {!banners.length > 0 && <p>No pets to show</p>}
+          {banners.length > 0 && (
             <div>
-              <pre>{JSON.stringify(pets, null, 2)}</pre>
+              <pre>{JSON.stringify(banners, null, 2)}</pre>
             </div>
           )}
-          {!pets.length > 0 && (
+          {!banners.length > 0 && (
             <div>
               <div>¯\_(ツ)_/¯</div>
               <p>
@@ -36,18 +36,12 @@ export default function Sanity({ pets }) {
     );
   }
 
-  const client = createClient({
-    projectId: "u2y1sc0p",
-    dataset: "production",
-    apiVersion: "2022-03-25",
-    useCdn: false
-  });
   
   export async function getStaticProps() {
-    const pets = await client.fetch(`*[_type == "pet"]`);  
+    const banners = await client.fetch(`*[_type == "banners"]`);  
     return {
       props: {
-        pets
+        banners
       }
     };
   }
