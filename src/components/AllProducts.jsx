@@ -1,4 +1,5 @@
 import { useStateContext } from "@/context/StateContext";
+import { urlFor } from "@/lib/SanityClient";
 import { Input, Pagination, Row } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +8,8 @@ import { useState } from "react";
 import { Categories } from "./Categories";
 import { CategoriesSpecial } from "./CategoriesSpecial";
 
-export function AllProducts() {
+export function AllProducts({products}) {
     const { setShowCart } =  useStateContext();
-    const repeat = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
     const [search, setSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -39,21 +39,25 @@ export function AllProducts() {
                         <CategoriesSpecial/>
                     </div>
                </div>
-                {repeat.map((e,index)=>{
+                {products.map((e,index)=>{
                     return(
                         <div className="products_wrapper">
                             <Link href={`/produto/Produto%20-%20${index+1}`}>
                                 <div className="products_img">
-                                    <Image src='/imgs/hero05.jpg' width='600' height='600' alt="single_product"/>
+                                    <Image src={urlFor(e?.image[0]).url()} width='600' height='600' alt="single_product"/>
                                 </div>
                                 <div className="products_content">
-                                    <span className="font-bold">Item {index+1}</span>
-                                    <span className="line-through">R$ 100,00</span>
-                                    <span>R$ 80,00</span> 
+                                    <span className="font-bold">{e.name}</span>
+                                    {e.discount > 0 ? <span className="line-through">R$ {parseFloat(e.price).toFixed(2).replace(".",",")}</span> : null}
+                                    <span>R$ {parseFloat(parseFloat(e.price).toFixed(2)*(1-(e.discount)/100)).toFixed(2).replace(".",",")}</span>
                                 </div>
                                 <span className="btn_products_add" onClick={()=>{setShowCart(true)}}>+</span>
-                                <figure className="all_products_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
-                                <span className="discount_text">-12%</span>
+                                { e.discount > 0 ? (
+                                    <>
+                                        <figure className="all_products_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
+                                        <span className="discount_text">-{e.discount}%</span>
+                                    </>
+                                ) : null }
                             </Link>
                         </div>
                         )

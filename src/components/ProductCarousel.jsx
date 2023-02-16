@@ -28,7 +28,7 @@ export function ProductCarousel({products}) {
 									{e.discount > 0 ? <span className="line-through">R$ {parseFloat(e.price).toFixed(2).replace(".",",")}</span> : null}
                                     <span>R$ {parseFloat(parseFloat(e.price).toFixed(2)*(1-(e.discount)/100)).toFixed(2).replace(".",",")}</span>
                                 </div>
-                                {e.discount > 0 ? (
+                                { e.discount > 0 ? (
                                     <>
                                         <figure className="product_carousel_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>
                                         <span className="product_carousel_discount_text">-{e.discount}%</span>
