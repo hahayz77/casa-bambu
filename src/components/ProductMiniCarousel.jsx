@@ -9,9 +9,8 @@ import Link from "next/link";
 import { useStateContext } from "@/context/StateContext";
 
 
-export function ProductMiniCarousel() {
+export function ProductMiniCarousel({productImages}) {
     const { setMiniCarouselIndex, miniCarousel } = useStateContext();
-    const repeat = [0,1,2,3,4];
     return (
         <>
             <Swiper
@@ -27,7 +26,7 @@ export function ProductMiniCarousel() {
                 }}
                 modules={[FreeMode, Scrollbar]}
                 className="product_mini_slider">
-                {repeat.map((e,index)=>{
+                {productImages.map((e,index)=>{
                     return(
                         <SwiperSlide className="mini_slide_item" key={index}><Link href='#' onClick={()=>{setMiniCarouselIndex(index)}}><Image src={miniCarousel[index]} width='600' height='600' alt="min_carousel"/></Link></SwiperSlide>
                     )

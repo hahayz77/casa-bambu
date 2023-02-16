@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ProductMiniCarousel } from "./ProductMiniCarousel";
 
-export function Product(props) {
+export function Product({products}) {
     const { miniCarousel, miniCarouselIndex } = useStateContext();
     const [fullImg, setFullImg] = useState(false);
 
@@ -16,11 +16,11 @@ export function Product(props) {
                         <Link href='#nav' onClick={()=>{setFullImg(true)}}><Image src={miniCarousel[miniCarouselIndex]} height='1000' width='1000' alt="fullpage"></Image></Link>
                     </div>
                     <div className="mini_carousel">
-                        <ProductMiniCarousel />
+                        <ProductMiniCarousel productImages={products[0].image}/>
                     </div>
                 </div>
                 <div className="product_content">
-                    <span className="product_name">{props.name}</span>
+                    <span className="product_name">{products[0].name}</span>
                     <div className="product_prices">
                         <div className="prices_line">
                             <span className="product_price">R$ 100,00</span>
@@ -53,3 +53,14 @@ export function Product(props) {
         </>
     )
 }
+
+
+export async function getStaticProps() { 
+    const products = await client.fetch(`*[_type == "products"]`);
+
+    return {
+      props: {
+        products
+      }
+    };
+  }

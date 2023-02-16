@@ -11,12 +11,12 @@ import { urlFor } from "@/lib/SanityClient";
 
 export function ProductCarousel({products}) {
     const { setShowCart } = useStateContext();
-    const featured = products.slice(0, 10); // Limit the number of products to carousel
+    // const featured = products?.slice(0, 10); // Limit the number of products to carousel
     return (
         <>
             <Swiper
                 id="productscarousel" slidesPerView={'auto'} spaceBetween={10} speed={800} autoplay={{ delay: 3000, disableOnInteraction: false, }} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode, Autoplay, Pagination]}>
-                {featured.map((e,index)=>{
+                {products?.map((e,index)=>{
                     return(
                         <SwiperSlide className="slide_item" key={index}>
 							<Link href={`/produto/produto%20${index+1}`}>
