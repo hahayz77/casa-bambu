@@ -35,8 +35,8 @@ export function AllProducts({products}) {
                </div>
                <div className="filter_wrapper w-full">
                     <div className="Filter">
-                        <Categories bg={'bg-white'} text={'text-rose'} description={'text-white'}/>
                         <CategoriesSpecial/>
+                        <Categories bg={'bg-white'} text={'text-rose'} description={'text-white'}/>
                     </div>
                </div>
                 {products.map((e,index)=>{

@@ -34,13 +34,13 @@ export default {
             name: 'price',
             title: 'Preço',
             type: 'number',
-            validation: Rule => Rule.positive().precision(2)
+            validation: (Rule: { positive: () => { (): any; new(): any; precision: { (arg0: number): any; new(): any; }; }; })  => Rule.positive().precision(2)
         },
         {
             name: 'discount',
             title: 'Desconto (ex: 50) - É igual a 50% de desconto',
             type: 'number',
-            validation: Rule => Rule.positive().max(100)
+            validation: (Rule: { positive: () => { (): any; new(): any; max: { (arg0: number): any; new(): any; }; }; }) => Rule.positive().max(100)
         },
         {
             name: 'qty',

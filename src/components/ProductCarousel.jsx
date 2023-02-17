@@ -20,8 +20,8 @@ export function ProductCarousel({products}) {
                 id="productscarousel" slidesPerView={'auto'} spaceBetween={10} speed={800} autoplay={{ delay: 3000, disableOnInteraction: false, }} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode, Autoplay, Pagination]}>
                 {productsSort?.map((e,index)=>{
                     return(
-                        <SwiperSlide className="slide_item" key={index}>
-							<Link href={`/produto/produto%20${index+1}`}>
+                        <SwiperSlide className="slide_item" key={e._id}>
+							<Link href={`/produto/${e.slug.current}`}>
 								<div className="product_carousel_img">
 									<Image src={urlFor(e?.image[0]).url()} width='600' height='600' alt="slide_product"/>
 								</div>

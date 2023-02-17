@@ -37,7 +37,7 @@ a {
 }
 
 a:hover, .cart:hover{
-  @apply transition-all scale-110 duration-300 ease-in-out;
+  @apply transition-all scale-105 duration-300 ease-in-out;
 }
 
 .btn_cta{
@@ -436,15 +436,15 @@ a:hover, .cart:hover{
 /*######################## Single Product ########################*/
 
 .product_container{
- @apply  p-6 pt-10 sm:pt-20 flex flex-wrap;
+ @apply  p-2 md:p-6 pt-12 lg:pt-16 sm:pt-20 flex flex-wrap;
 }
 
 .product_image_container{
- @apply  flex flex-col w-full md:w-1/2;
+ @apply  flex flex-col w-full min-h-[400px] md:w-1/2;
 }
 
 .product_img{
- @apply  w-full h-[70%] rounded-3xl overflow-hidden;
+ @apply  w-full h-[70%] rounded-2xl overflow-hidden;
 }
 
 .product_img img{
@@ -452,7 +452,7 @@ a:hover, .cart:hover{
 }
 
 .mini_carousel{
- @apply  h-[20%];
+ @apply h-[25%] lg:h-[20%] my-3;
 }
 
 .product_content{
@@ -484,11 +484,11 @@ a:hover, .cart:hover{
  }
 
  .product_discount_img{
-  @apply  w-32 h-auto p-0 m-0
+  @apply  w-28 h-auto p-0 m-0 ml-4 opacity-80
  }
 
  .product_discount_text{
-  @apply  absolute top-8 right-9 text-2xl
+  @apply  absolute top-6 right-12 text-2xl
  }
 
 .product_controls{
@@ -514,7 +514,7 @@ a:hover, .cart:hover{
  
 
 .mini_slide_item{
-  @apply  rounded-lg overflow-hidden relative;
+  @apply  rounded-lg overflow-hidden relative min-w-[100px];
 }
 
 .mini_slide_item img{
@@ -553,7 +553,7 @@ a:hover, .cart:hover{
 }
 
 .search_result span{
-  @apply hover:bg-black hover:bg-opacity-10 rounded-lg p-1
+  @apply hover:bg-black hover:bg-opacity-10 rounded-lg p-1;
 }
 
 .search_ocult{
@@ -605,11 +605,11 @@ a:hover, .cart:hover{
 }
 
 .all_products_discount img{
- @apply  absolute bottom-0 left-0 h-20 w-20;
+ @apply  absolute bottom-0 left-3 h-20 w-20;
 }
 
 .discount_text{
- @apply  absolute bottom-7 left-5 text-white text-base;
+ @apply  absolute bottom-7 left-6 text-white text-base;
 } 
 
 .nextui-dropdown-menu{
@@ -621,7 +621,7 @@ a:hover, .cart:hover{
 }
 
 .slide_item{
-  @apply  max-w-[400px] rounded-lg overflow-hidden
+  @apply  max-w-[400px] rounded-lg overflow-hidden;
 }
 
 
@@ -654,7 +654,7 @@ a:hover, .cart:hover{
 }
  
  .product_carousel_discount_text{
-  @apply  absolute top-8 right-[1.25rem] text-white text-2xl;
+  @apply  absolute top-8 right-9 text-white text-2xl;
  } 
 
  .pagination{
