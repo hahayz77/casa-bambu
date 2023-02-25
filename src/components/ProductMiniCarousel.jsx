@@ -5,8 +5,6 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 import Image from "next/image";
-import Link from "next/link";
-import { useStateContext } from "@/context/StateContext";
 import { urlFor } from "@/lib/SanityClient";
 
 
@@ -16,10 +14,8 @@ export function ProductMiniCarousel({miniCarouselImg, setMiniCarouselImg, produc
             <Swiper id="productminicarousel" slidesPerView={4} spaceBetween={10} scrollbar={{ hide: false }} freeMode={true} pagination={{ clickable: true }} modules={[FreeMode, Scrollbar]} className="product_mini_slider">
                 {productImgs?.map((e,index)=>{
                     return(
-                        <SwiperSlide className="mini_slide_item" key={e.key}>
-                            <Link href="# " onClick={()=>{setMiniCarouselImg(urlFor(e.asset._ref).url())}}>
-                                <Image src={urlFor(e.asset._ref).url()} width='600' height='600' alt="min_carousel"/>
-                            </Link>
+                        <SwiperSlide className="mini_slide_item cursor-pointer" key={e.key}>
+                            <Image src={urlFor(e.asset._ref).url()} width='600' height='600' alt="min_carousel" onClick={()=>{setMiniCarouselImg(urlFor(e.asset._ref).url())}}/>
                         </SwiperSlide>
                     )
                 })}

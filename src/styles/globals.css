@@ -417,8 +417,36 @@ a:hover, .cart:hover{
   @apply px-2 md:px-6 pb-6 md:pb-10 grid grid-flow-row grid-cols-2 grid-rows-[repeat(5,minmax(100px,200px))] lg:grid-cols-3 lg:grid-rows-[repeat(4,minmax(100px,400px))] gap-3 lg:gap-6;
 }
 
+.galery_grid div:nth-child(n){
+ @apply  col-span-2;
+}
+
+.galery_grid div:nth-child(2n){
+  @apply  col-span-1;
+ }
+
+.galery_grid div:nth-child(3n){
+  @apply  col-span-1;
+}
+
+.galery_grid div:nth-child(4n){
+  @apply  col-span-2 lg:col-span-2;
+}
+
+.galery_grid div:nth-child(5n){
+  @apply  col-span-1 lg:col-span-2;
+}
+
+.galery_grid div:nth-child(6n){
+  @apply  lg:col-span-1;
+}
+
+.galery_grid div:nth-child(7n){
+  @apply  col-span-2 lg:col-span-3;
+}
+
 .galery_grid img{
-  @apply h-full w-full object-cover rounded-lg;
+  @apply h-full w-full object-cover rounded-lg cursor-pointer;
 }
 
 

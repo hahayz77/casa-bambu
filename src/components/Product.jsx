@@ -1,6 +1,5 @@
 import { useStateContext } from "@/context/StateContext";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { ProductMiniCarousel } from "./ProductMiniCarousel";
 import { useRouter } from "next/router"
@@ -18,8 +17,8 @@ export function Product({products}) {
         <>
             <div id="product" className="product_container bg-special">
                 <div className="product_image_container">
-                    <div className="product_img">
-                        <Link href='#nav' onClick={()=>{setFullImg(true)}}><Image src={miniCarouselImg} height='1000' width='1000' alt="fullpage"></Image></Link>
+                    <div className="product_img cursor-pointer">
+                        <Image onClick={()=>{setFullImg(true)}} src={miniCarouselImg} height='1000' width='1000' alt="fullpage"></Image>
                     </div>
                     <div className="mini_carousel">
                         <ProductMiniCarousel miniCarouselImg={miniCarouselImg} setMiniCarouselImg={setMiniCarouselImg} productImgs={product.image}/>

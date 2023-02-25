@@ -39,10 +39,9 @@ export function AllProducts({products}) {
                         <Categories bg={'bg-white'} text={'text-rose'} description={'text-white'}/>
                     </div>
                </div>
-                {products.map((e,index)=>{
-                    return(
+                {products?.map((e,index)=>{ return(
                         <div className="products_wrapper">
-                            <Link href={`/produto/Produto%20-%20${index+1}`}>
+                            <Link href={`/produto/${e.slug.current}`}>
                                 <div className="products_img">
                                     <Image src={urlFor(e?.image[0]).url()} width='600' height='600' alt="single_product"/>
                                 </div>
@@ -60,8 +59,7 @@ export function AllProducts({products}) {
                                 ) : null }
                             </Link>
                         </div>
-                        )
-                    })}
+                )})}
                 <div className="pagination">
                     <Pagination id="all_prod_pagination" rounded total={3} initialPage={1} />
                 </div>

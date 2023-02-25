@@ -8,7 +8,7 @@ import { Steps } from '@/components/Steps';
 import { client } from '@/lib/SanityClient'
 
 
-export default function Index({banners, products}) {
+export default function Index({banners, products, galery}) {
     return (
         <>
             <Nav/>
@@ -16,7 +16,7 @@ export default function Index({banners, products}) {
             <Carousel banners={banners}/>
             <ProductCategories products={products}/>
             <Steps/>
-            <Galery/>
+            <Galery galery={galery}/>
             <Footer/>
         </>
     )
@@ -25,11 +25,11 @@ export default function Index({banners, products}) {
   export async function getStaticProps() {
     const banners = await client.fetch(`*[_type == "banners"]`);  
     const products = await client.fetch(`*[_type == "products"]`);
+    const galery = await client.fetch(`*[_type == "galery"]`);
 
     return {
       props: {
-        banners,
-        products
+        banners, products, galery
       }
     };
   }

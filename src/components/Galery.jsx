@@ -1,20 +1,32 @@
+import { useState } from "react";
 import Image from "next/image";
+import { urlFor } from "@/lib/SanityClient";
 
-export function Galery() {
+export function Galery({galery}) {
+    const [fullImg, setFullImg] = useState(false);
+    const bannersGalery = galery?.slice(0,7).sort((a,b) => b.name.localeCompare(a.name));
+    const [galeryFullImg, setGaleryFullImg] = useState();
+
+
     return (
         <>
             <section className="galery">
                 <h1 className="title">Galeria</h1>
                 <div className="galery_grid">
-                    <div className="col-span-2"><Image src="/imgs/hero01.jpg" alt="img1" width='1000' height='1000'/></div>
-                    <div><Image src="/imgs/hero02.jpg" alt="img2" width='1000' height='1000'/></div>
-                    <div><Image src="/imgs/hero03.jpg" alt="img3" width='1000' height='1000'/></div>
-                    <div className="col-span-2 lg:col-span-2"><Image src="/imgs/hero04.jpg" alt="img4" width='1000' height='1000'/></div>
-                    <div className="lg:col-span-2"><Image src="/imgs/hero05.jpg" alt="img5" width='1000' height='1000'/></div>
-                    <div><Image src="/imgs/hero01.jpg" alt="img" width='1000' height='1000'/></div>
-                    <div className="col-span-2 lg:col-span-3"><Image src="/imgs/hero02.jpg" alt="img6" width='1000' height='1000'/></div>
+                    {bannersGalery?.map((e, index)=>{ return(
+                        <div key={e._id}><Image src={urlFor(e.imagem.asset._ref).url()} width='600' height='600' alt="galery" onClick={()=>{setGaleryFullImg(urlFor(e.imagem.asset._ref).url());setFullImg(true)}}/></div>
+                    )})}
                 </div>
             </section>
+            {fullImg && 
+                <>
+                    <div id="fullimg" className="full_img transition-all duration-300 modal-active">
+                        <div className="mask_full_img" onClick={()=>{setFullImg(false)}}></div>
+                        <figure><Image src={galeryFullImg} height='1000' width='1000' alt="mini_carousel"/></figure>
+                    </div>
+                    <span className="x_mask_full_img" onClick={()=>{setFullImg(false)}}> x </span>
+                </>
+            }
         </>
     )
 }
