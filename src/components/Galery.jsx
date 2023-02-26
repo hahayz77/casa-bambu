@@ -3,8 +3,8 @@ import Image from "next/image";
 import { urlFor } from "@/lib/SanityClient";
 
 export function Galery({galery}) {
+    galery = galery?.slice(0,7).sort((a,b) => b.name.localeCompare(a.name));
     const [fullImg, setFullImg] = useState(false);
-    const bannersGalery = galery?.slice(0,7).sort((a,b) => b.name.localeCompare(a.name));
     const [galeryFullImg, setGaleryFullImg] = useState();
 
 
@@ -13,7 +13,7 @@ export function Galery({galery}) {
             <section className="galery">
                 <h1 className="title">Galeria</h1>
                 <div className="galery_grid">
-                    {bannersGalery?.map((e, index)=>{ return(
+                    {galery?.map((e, index)=>{ return(
                         <div key={e._id}><Image src={urlFor(e.imagem.asset._ref).url()} width='600' height='600' alt="galery" onClick={()=>{setGaleryFullImg(urlFor(e.imagem.asset._ref).url());setFullImg(true)}}/></div>
                     )})}
                 </div>

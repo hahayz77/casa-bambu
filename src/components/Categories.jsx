@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-export function Categories(props) {
-    const repeat = [0,0,0,0,0];
+export function Categories({ bg, text, color, categories}) {
+    categories = categories?.sort((a,b)=>a.name.localeCompare(b.name))
     return (
         <>
             <div className="categories">
-                {repeat.map((e, index)=>{return(
+                {categories?.map((e, index)=>{return(
                     <div className="categories_div" key={index+Date.now()}> <Link href={`#${index}`}>
-                        <div className={`categories_items ${props.bg} ${props.text}`}>
+                        <div className={`categories_items ${bg} ${text}`}>
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
                                 <circle cx="6" cy="6" r="3"></circle>
                                 <circle cx="6" cy="18" r="3"></circle>
@@ -15,7 +15,7 @@ export function Categories(props) {
                             </svg>
                         </div>
                         <div>
-                            <h2 className={`categories_description ${props.description}`}>{index === 1 ? 'Difusores' : index === 2 ? 'Vasos' : index === 3 ? 'Utensílios' : index === 4 ? 'Decoração' : 'Aromas'}</h2>
+                            <h2 className={color}>{e.name}</h2>
                         </div>
                     </Link>
                 </div>

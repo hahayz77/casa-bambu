@@ -8,13 +8,13 @@ import { Steps } from '@/components/Steps';
 import { client } from '@/lib/SanityClient'
 
 
-export default function Index({banners, products, galery}) {
+export default function Index({banners, products, galery, categories}) {
     return (
         <>
             <Nav/>
             <Cart/>
             <Carousel banners={banners}/>
-            <ProductCategories products={products}/>
+            <ProductCategories products={products} categories={categories}/>
             <Steps/>
             <Galery galery={galery}/>
             <Footer/>
@@ -26,10 +26,11 @@ export default function Index({banners, products, galery}) {
     const banners = await client.fetch(`*[_type == "banners"]`);  
     const products = await client.fetch(`*[_type == "products"]`);
     const galery = await client.fetch(`*[_type == "galery"]`);
+    const categories = await client.fetch(`*[_type == "categories"]`);
 
     return {
       props: {
-        banners, products, galery
+        banners, products, galery, categories,
       }
     };
   }

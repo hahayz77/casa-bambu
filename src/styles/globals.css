@@ -452,12 +452,24 @@ a:hover, .cart:hover{
 
 /*######################## Footer ########################*/
 
-.footer{
-  @apply text-white bg-rose;
+.footer_wrapper{
+  @apply text-white px-16 py-12 gap-y-8 lg:py-20 flex flex-col md:flex-row justify-center items-center;
 }
 
-.footer_container{
-  @apply px-16 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col;
+.footer_title{
+ @apply  uppercase text-lg font-bold
+}
+
+.footer_contact, .footer_nav, .footer_security {
+ @apply  px-6 my-3 mr-auto border-l-2 border-opacity-50 border-white
+}
+
+.footer_security .stripe{
+  @apply  flex flex-col items-start
+ }
+
+.footer_sec_icons *{
+ @apply  h-16 w-14 inline-flex px-1
 }
 
 

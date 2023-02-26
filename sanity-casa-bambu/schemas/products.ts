@@ -23,7 +23,7 @@ export default {
         },
         {
             name: 'slug',
-            title: 'Link (ex: nome-do-produto) - Sempre com letras minúsculas, separado pro traços e deve ser único',
+            title: 'Link (ex: nome-do-produto) - Sempre com letras minúsculas, separado por traços e deve ser único',
             type: 'slug',
             opitions:{
                 source: 'name',
@@ -55,7 +55,7 @@ export default {
         },
         {
             name: 'categories',
-            title: 'Categorias (ex: Aromas, Difusores) - Separados por vírgula',
+            title: 'Categorias (ex: aromas, difusores) - Separados por vírgula e com letras minúsculas (Consultar Link da Categoria)',
             type: 'string'
         }
     ]
