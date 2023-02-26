@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaCcMastercard, FaCcVisa, FaStripe } from 'react-icons/fa'
+import { FaCcMastercard, FaCcVisa, FaFacebook, FaInstagram, FaPinterest, FaStripe } from 'react-icons/fa'
 import { BiBarcode } from 'react-icons/bi'
 
 export function Footer() {
@@ -18,7 +18,7 @@ export function Footer() {
                         <br/>
                         <span className="footer_title">Email :</span>
                         <br/>
-                        <span>contato@contato.com</span>
+                        <span><a href="mailto:contato@contato.com">contato@contato.com</a></span>
                         <br/>
                     </div>
                     <div className="footer_nav">
@@ -28,6 +28,11 @@ export function Footer() {
                         <p><Link href='/sobre'>Sobre</Link></p>
                         <p><Link href='/produtos'>Produtos</Link></p>
                         <p><Link href='/contato'>Contato</Link></p>
+                        <p className="inline-flex gap-x-2 cursor-pointer" > 
+                            <FaInstagram onClick={()=>window.open('http://www.instagram.com/', '_blank')}/>
+                            <FaFacebook onClick={()=>window.open('http://www.facebook.com/', '_blank')}/>
+                            <FaPinterest />
+                        </p>
                     </div>
                     <div className="footer_security">
                         <div className="stripe">
@@ -42,23 +47,10 @@ export function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="inline-flex w-full justify-center items-center pb-4 px-5 text-bege text-opacity-70">
+                <div className="inline-flex w-full justify-center items-center pb-4 px-5 text-bege text-opacity-30">
                     <p className="text-gray-500 text-sm text-center md:text-left">
                         <a href="https://www.github.com/hahayz77" rel="noopener noreferrer" target="_blank">© 2023 Github.com/hahayz77</a>
                     </p>
-                    <span className="inline-flex ml-10 sm:ml-auto justify-center sm:justify-start">
-                        <a className="text-gray-500">
-                            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a className="ml-3">
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                            </svg>
-                        </a>
-                    </span>
                 </div>
             </footer>
         </>

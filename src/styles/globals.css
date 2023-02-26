@@ -449,6 +449,39 @@ a:hover, .cart:hover{
   @apply h-full w-full object-cover rounded-lg cursor-pointer;
 }
 
+/*######################## Contact ########################*/
+
+#contact{
+ @apply  h-[90vh] overflow-auto flex flex-col md:flex-row
+}
+
+.contact_img{
+ @apply  h-full md:w-1/2 hidden md:flex
+}
+
+.contact_img img{
+  @apply  h-full w-full object-cover pr-8
+ }
+
+.contact_form{
+ @apply  h-full md:w-1/2
+}
+
+.form_container{
+ @apply  flex flex-col gap-1 px-8 md:px-12 gap-y-10
+}
+
+.form_container label{
+  @apply  text-rose
+ }
+
+.nextui-c-eXOOPO{
+ @apply  bg-rose bg-opacity-20
+}
+
+.contact_other{
+ @apply  inline-flex bg-green
+}
 
 /*######################## Footer ########################*/
 
