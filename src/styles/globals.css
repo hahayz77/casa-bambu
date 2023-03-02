@@ -745,11 +745,15 @@ a:hover, .cart:hover{
  }
 
  #success p{
-  @apply  text-rose text-sm md:text-lg text-justify px-4
+  @apply  text-rose text-sm md:text-lg text-center px-4
+ }
+
+ #success a{
+  @apply text-green text-opacity-90
  }
 
  .success_icons{
-  @apply  flex flex-row text-rose my-6 mb-20
+  @apply  flex flex-row text-green my-6 mb-20
  }
 
  .success_icons *{
