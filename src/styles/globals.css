@@ -733,3 +733,25 @@ a:hover, .cart:hover{
  .pagination{
   @apply  inline-flex w-full justify-center pt-8;
  }
+
+ /*######################## Success Page ########################*/
+
+ #success{
+  @apply  bg-green bg-opacity-20 rounded-3xl mx-6 mt-12 mb-24 flex flex-col justify-center items-center
+ }
+
+ #success img{
+  @apply  mb-10
+ }
+
+ #success p{
+  @apply  text-rose text-sm md:text-lg text-justify px-4
+ }
+
+ .success_icons{
+  @apply  flex flex-row text-rose my-6 mb-20
+ }
+
+ .success_icons *{
+  @apply h-8 w-8 mx-2 cursor-pointer
+ }
