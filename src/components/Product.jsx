@@ -10,7 +10,7 @@ import { DiscountToBRL } from "@/functions/DiscountToBRL";
 
 
 export function Product({products}) {
-    const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice } = useStateContext();
+    const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice, setShowCart } = useStateContext();
     const [fullImg, setFullImg] = useState(false);
     const router = useRouter();
     const { query : { slug } } = router;
@@ -54,6 +54,7 @@ export function Product({products}) {
                     </div>
                     <button onClick={()=>{
                         AddOnCart(product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice);
+                        setShowCart(true);
                         setQuantity(1);
                     }} className="btn_cta bg-green bg-opacity-70 text-lg">Adicionar ao Carrinho</button>
                 </div>
