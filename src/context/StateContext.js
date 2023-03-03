@@ -1,3 +1,5 @@
+import { AddOnCart } from "@/functions/AddOnCart";
+import { CartLogic } from "@/functions/CartLogic";
 import { RouterDataControl } from "@/functions/RouterDataControl";
 import { createContext, useContext, useState } from "react";
 
@@ -5,26 +7,28 @@ const Context = createContext();
 
 export const StateContext = ( { children } ) => {
     const teste = "UseContext()!";
+
     const [showCart, setShowCart] = useState(false);
     const [navRoute, setNavRoute] = useState("");
-    const [cart, setCart] = useState([1,1,1,1,1,1]);
-    const [miniCarousel, setMiniCarousel] = useState(['/imgs/hero01.jpg','/imgs/hero02.jpg','/imgs/hero03.jpg','/imgs/hero04.jpg','/imgs/hero05.jpg']);
-    const [miniCarouselIndex, setMiniCarouselIndex] = useState(0);
-
     RouterDataControl(setNavRoute,setShowCart);
+
+    const [cartItems, setCartItems] = useState([]);
+    const [totalQuantities, setTotalQuantities] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+
 
     return(
         <Context.Provider value={{
             teste,
             showCart, 
             setShowCart, 
-            cart, 
-            setCart,
+            cartItems, 
+            setCartItems,
+            totalQuantities,
+            setTotalQuantities,
+            totalPrice, 
+            setTotalPrice,
             navRoute,
-            miniCarousel,
-            setMiniCarousel,
-            miniCarouselIndex,
-            setMiniCarouselIndex
         }}>
         {children}
         </Context.Provider>

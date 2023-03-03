@@ -5,6 +5,7 @@ export default {
     initialValue: {
         qty: 1,
         discount: 0,
+        max_qty: 0
       },
     fields:[
         {
@@ -44,9 +45,15 @@ export default {
         },
         {
             name: 'qty',
-            title: 'Quantity',
+            title: 'Quantidade',
             type: 'number',
             hidden: true
+        },
+        {
+            name: 'max_qty',
+            title: 'Quantidade Máxima - Limite de Vendas por pedido.',
+            type: 'number',
+            validation: (Rule: { positive: () => { (): any; new(): any; }; }) => Rule.positive()
         },
         {
             name: 'details',

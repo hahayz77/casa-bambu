@@ -4,14 +4,19 @@ import { useState } from "react";
 import { ProductMiniCarousel } from "./ProductMiniCarousel";
 import { useRouter } from "next/router"
 import { urlFor } from "@/lib/SanityClient";
+import { AddOnCart } from "@/functions/AddOnCart";
+import { PriceToBRL } from "@/functions/PriceToBRL";
+import { DiscountToBRL } from "@/functions/DiscountToBRL";
 
 
 export function Product({products}) {
+    const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice } = useStateContext();
     const [fullImg, setFullImg] = useState(false);
     const router = useRouter();
     const { query : { slug } } = router;
     const product = products.find(e=> e.slug.current === slug);
     const [miniCarouselImg, setMiniCarouselImg] = useState(urlFor(product.image[0].asset._ref).url());
+    const [quantity, setQuantity] = useState(1);
 
     return (
         <>
@@ -28,8 +33,8 @@ export function Product({products}) {
                     <span className="product_name">{product.name}</span>
                     <div className="product_prices">
                         <div className="prices_line">
-                            {product.discount > 0 ? <span className="product_price">R$ {parseFloat(product.price).toFixed(2).replace(".",",")}</span> : null}
-                            <span className="product_discount">R$ {parseFloat(parseFloat(product.price).toFixed(2)*(1-(product.discount)/100)).toFixed(2).replace(".",",")}</span>
+                            {product.discount > 0 ? <span className="product_price">R$ {PriceToBRL(product)}</span> : null}
+                            <span className="product_discount">R$ {DiscountToBRL(product)}</span>
                         </div>
                         <div className="product_discount_container">
                             { product.discount > 0 ? (
@@ -43,11 +48,14 @@ export function Product({products}) {
                     <span>Detalhes do Produto</span>
                     <span>{product.details}</span>
                     <div className="product_controls">
-                        <button>-</button>
-                        <span className="px-4">{product.qty}</span>
-                        <button>+</button>
+                        <button onClick={(qty)=>{if(quantity > 1 ) setQuantity(qty = quantity - 1)}}>-</button>
+                        <span className="px-4">{quantity}</span>
+                        <button onClick={(qty)=>{setQuantity(qty = quantity + 1)}}>+</button>
                     </div>
-                    <button className="btn_cta bg-green bg-opacity-70 text-lg">Adicionar ao Carrinho</button>
+                    <button onClick={()=>{
+                        AddOnCart(product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice);
+                        setQuantity(1);
+                    }} className="btn_cta bg-green bg-opacity-70 text-lg">Adicionar ao Carrinho</button>
                 </div>
             </div>
             {fullImg && 
