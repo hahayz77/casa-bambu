@@ -5,14 +5,13 @@ const Context = createContext();
 
 export const StateContext = ( { children } ) => {
     const teste = "UseContext()!";
-
     const [showCart, setShowCart] = useState(false);
     const [navRoute, setNavRoute] = useState("");
-    RouterDataControl(setNavRoute,setShowCart);
-
     const [cartItems, setCartItems] = useState([]);
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+    
+    RouterDataControl(setNavRoute,setShowCart);
 
 
     return(

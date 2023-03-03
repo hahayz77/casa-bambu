@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export function Nav() {
     const [activemenu, setActiveMenu] = useState(false);
-    const { setShowCart, showCart, navRoute } = useStateContext();
+    const { setShowCart, showCart, navRoute, totalQuantities } = useStateContext();
 
     return (
         <>
@@ -26,7 +26,7 @@ export function Nav() {
                 <div className='cart absolute top-0 right-0 h-20 px-3 py-3'>
                     <Link href="#nav" className='hover:scale-110' onClick={()=>{setShowCart(true)}}>
                         <figure className='relative top-3 md:top-5 right-2'><Image className='w-[26px] md:w-[36px]' src="/cart.svg" alt="me" width="36" height="36"></Image></figure>
-                        <span className='bg-green text-white rounded-full h-[13px] md:h-4 w-4 text-center text-[8px] md:text-[10px] absolute top-2 md:top-4 right-4'>10</span>
+                        <span className='bg-green text-white rounded-full h-[13px] md:h-4 w-4 text-center text-[8px] md:text-[10px] absolute top-2 md:top-4 right-4'>{totalQuantities}</span>
                     </Link>
                 </div> 
             {/* <-- Icon menu to Small Nav --> */}
