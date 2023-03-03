@@ -1,11 +1,11 @@
-import { DiscountToBRL } from "@/functions/DiscountToBRL";
-import { PriceToBRL } from "@/functions/PriceToBRL";
 import Image from "next/image";
 import { useStateContext } from "../context/StateContext";
+import { DiscountToBRL } from "@/functions/DiscountToBRL";
+import { PriceToBRL } from "@/functions/PriceToBRL";
 
 
 export function Cart() {
-    const { cartItems, setCartItems, setShowCart, showCart, totalPrice } = useStateContext();
+    const { cartItems, setShowCart, showCart, totalPrice } = useStateContext();
     return (
         <>
             <div className={`cart_menu ${showCart === true ? 'showcartmenu' : 'hidecartmenu'}`} >

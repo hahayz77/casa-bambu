@@ -1,5 +1,3 @@
-import { AddOnCart } from "@/functions/AddOnCart";
-import { CartLogic } from "@/functions/CartLogic";
 import { RouterDataControl } from "@/functions/RouterDataControl";
 import { createContext, useContext, useState } from "react";
 
