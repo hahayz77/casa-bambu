@@ -1,5 +1,6 @@
-export const AddOnCart = (product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice) => {
+export const AddOnCart = (product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice, finalPrice) => {
 
+    finalPrice = parseFloat( product.price * ( 1- ( product.discount ) / 100) ).toFixed(2);
     const checkProductInCart = cartItems?.find((item) => item._id === product._id);
     const otherProductsInCart = cartItems?.find((item) => item._id !== product._id);
 
@@ -18,13 +19,8 @@ export const AddOnCart = (product, quantity, cartItems, setCartItems, totalQuant
         product.qty = quantity;
         setCartItems([...cartItems, product]);
 
-    }
-    setTotalQuantities(()=>totalQuantities+quantity);
-    if(product.discount){
-        setTotalPrice(() => totalPrice + ( product.price * (1-(product.discount)/100)).toFixed(2) * quantity);
-    } else{
-        setTotalPrice(() => totalPrice + product.price * quantity);
-    }
+    };
+    setTotalQuantities(()=> totalQuantities + quantity);
+    setTotalPrice((result) => result = Number(parseFloat(totalPrice + finalPrice * quantity).toFixed(2)));
     // toast.success(`${qty}un ${product.name} was added in cart.`);
-    // setQty(1);
 }

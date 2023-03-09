@@ -2,10 +2,12 @@ import Image from "next/image";
 import { useStateContext } from "../context/StateContext";
 import { DiscountToBRL } from "@/functions/DiscountToBRL";
 import { PriceToBRL } from "@/functions/PriceToBRL";
+import { InsideCartLogic } from "@/functions/InsideCartLogic";
+import { urlFor } from "@/lib/SanityClient";
 
 
 export function Cart() {
-    const { cartItems, setShowCart, showCart, totalPrice } = useStateContext();
+    const { showCart, setShowCart, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice } = useStateContext();
     return (
         <>
             <div className={`cart_menu ${showCart === true ? 'showcartmenu' : 'hidecartmenu'}`} >
@@ -18,27 +20,28 @@ export function Cart() {
                             return(
                                 <div className="item_cart" key={e._id}>
                                     <div className="cart_img">
-                                        <Image src='/imgs/hero04.jpg' width="460" height="460" alt="cart_img"/>
+                                        <Image src={urlFor(e.image[0].asset._ref).url()} width="460" height="460" alt="cart_img"/>
                                     </div>
                                     <div className="cart_item_content">
                                         <div className="cart_item_title">{e.name}</div>
                                         <div className="cart_item_commands">
                                             <div className="qty_controls">
-                                                <button className="cart_btn"> - </button>
+                                                <button className="cart_btn" onClick={() => InsideCartLogic(e, 'dec', cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice )}> - </button>
                                                 <span>{e.qty}</span>
-                                                <button className="cart_btn"> + </button>
+                                                <button className="cart_btn" onClick={() => InsideCartLogic(e, 'inc', cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice)}> + </button>
                                             </div>
-                                            <span>R$ {e.discount > 0 ? DiscountToBRL(e) : PriceToBRL(e)}</span>
+                                            <span>R$ {e.discount > 0 ? DiscountToBRL(e) : PriceToBRL(e)} un</span>
                                         </div>
-                                    <div className="cart_trash"><Image src='/trash.svg' width='30' height='30' alt="delete"/></div>
+                                    <div className="cart_trash" onClick={() => InsideCartLogic(e, 'rem', cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice)}><Image src='/trash.svg' width='30' height='30' alt="delete"/></div>
                                     </div>    
                                 </div>
                             )}
                         )}
                         <div className="total_price">
                             <span>Total : </span>
-                            <span>R$ {totalPrice.toFixed(2).replace(".",",")}</span>
+                            <span>R$ {parseFloat(totalPrice).toFixed(2).replace('.',',')}</span>
                         </div>
+                            {console.log(totalPrice)}
                         <div className="cart_buy_btn">
                             <button> Finalizar Comprar </button>
                         </div>
