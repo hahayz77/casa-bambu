@@ -39,7 +39,8 @@ export function Cart() {
                         )}
                         <div className="total_price">
                             <span>Total : </span>
-                            <span>R$ {parseFloat(totalPrice).toFixed(2).replace('.',',')}</span>
+                            <span>R$ {totalPrice}</span>
+                            {/* <span>R$ {parseFloat(totalPrice).toFixed(2).replace('.',',')}</span> */}
                         </div>
                             {console.log(totalPrice)}
                         <div className="cart_buy_btn">
