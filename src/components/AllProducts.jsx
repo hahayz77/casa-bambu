@@ -1,10 +1,12 @@
 import { useStateContext } from "@/context/StateContext";
+import { DiscountToBRL } from "@/functions/DiscountToBRL";
+import { PriceToBRL } from "@/functions/PriceToBRL";
 import { urlFor } from "@/lib/SanityClient";
 import { Input, Pagination, Row } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Categories } from "./Categories";
 import { CategoriesSpecial } from "./CategoriesSpecial";
 
@@ -12,6 +14,16 @@ export function AllProducts({products}) {
     const { setShowCart } =  useStateContext();
     const [search, setSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [pageNumber, setPageNumber] = useState(1);
+    const [view, setView] = useState([]);
+    const itemsPerPage = 5;
+    const [totalViews, setTotalViews] = useState(Math.ceil(products.length / itemsPerPage));
+    
+    useEffect((lastItems, firsItems)=>{
+        lastItems = pageNumber * itemsPerPage;
+        firsItems = lastItems - itemsPerPage;
+        setView(products.slice(firsItems, lastItems));
+    },[pageNumber])
 
     const router = useRouter();
     function handlerEnter(e){
@@ -39,16 +51,16 @@ export function AllProducts({products}) {
                         <Categories bg={'bg-white'} text={'text-rose'} description={'text-white'}/>
                     </div>
                </div>
-                {products?.map((e,index)=>{ return(
-                        <div className="products_wrapper">
+                {view?.map((e)=>{ return(
+                        <div id={e.id} className="products_wrapper">
                             <Link href={`/produto/${e.slug.current}`}>
                                 <div className="products_img">
                                     <Image src={urlFor(e?.image[0]).url()} width='600' height='600' alt="single_product"/>
                                 </div>
                                 <div className="products_content">
                                     <span className="font-bold">{e.name}</span>
-                                    {e.discount > 0 ? <span className="line-through">R$ {parseFloat(e.price).toFixed(2).replace(".",",")}</span> : null}
-                                    <span>R$ {parseFloat(parseFloat(e.price).toFixed(2)*(1-(e.discount)/100)).toFixed(2).replace(".",",")}</span>
+                                    {e.discount > 0 ? <span className="line-through">R$ {PriceToBRL(e)}</span> : null}
+                                    <span>R$ {DiscountToBRL(e)}</span>
                                 </div>
                                 <span className="btn_products_add" onClick={()=>{setShowCart(true)}}>+</span>
                                 { e.discount > 0 ? (
@@ -61,7 +73,7 @@ export function AllProducts({products}) {
                         </div>
                 )})}
                 <div className="pagination">
-                    <Pagination id="all_prod_pagination" rounded total={3} initialPage={1} />
+                    <Pagination id="all_prod_pagination" rounded total={totalViews} initialPage={1} page={pageNumber} onChange={(e)=>{setPageNumber(e)}}/>
                 </div>
             </div>
         </>

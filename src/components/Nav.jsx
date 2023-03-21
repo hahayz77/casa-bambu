@@ -5,19 +5,19 @@ import { useState } from 'react'
 
 export function Nav() {
     const [activemenu, setActiveMenu] = useState(false);
-    const { setShowCart, showCart, navRoute, totalQuantities } = useStateContext();
+    const { setShowCart, navRoute, totalQuantities } = useStateContext();
 
     return (
         <>
             {/* <-- Normal Nav --> */}
             <nav className="bg-white hidden sm:flex justify-center align-middle w-full sm:h-[60px] md:h-[80px] transition-all duration-300">
-                <div className="navegation flex justify-center align-bottom text">
+                <div className="navegation flex justify-center align-bottom text z-10">
                     <Link href="/" className={`nav_text ${navRoute === '/' ? 'nav_active' : ''}`}>Início</Link>
                     <Link href="/sobre" className={`nav_text ${navRoute === '/sobre' ? 'nav_active' : ''}`}>Sobre</Link>
                 </div>
                 {/* <-- Logo --> */}
                 <figure className="logo h-20 md:h-24 pt-3 z-10 bg-white w-[100px] md:w-[130px]"><Image className='mx-auto w-[80px] md:w-[90px]' src="/logo.svg" alt="logo" width="120" height="300"></Image></figure>
-                <div className="navegation flex">
+                <div className="navegation flex justify-center align-bottom text z-10">
                     <Link href="/produtos" className={`nav_text ${navRoute === '/produtos' ? 'nav_active' : ''}`}>Produtos</Link>
                     <Link href="/contato" className={`nav_text ${navRoute === '/contato' ? 'nav_active' : ''}`}>Contato</Link>
                 </div>
