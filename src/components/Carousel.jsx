@@ -15,7 +15,7 @@ export function Carousel({banners}) {
     <>
       <Swiper
         spaceBetween={600} effect={"fade"} autoplay={{ delay: 5000, disableOnInteraction: true }} loop={true} navigation={true} pagination={{ clickable: true }} modules={[EffectFade, Navigation, Pagination, Autoplay]} className="carousel w-full">
-        {banners.map((e,index)=>{
+        {banners.map((e)=>{
           return(
             <SwiperSlide>
               <Image key={e._id} className="hero_item" src={urlFor(e.imagem).url()} height='2000' width='2000' alt="slide_img"/>

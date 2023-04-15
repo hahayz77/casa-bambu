@@ -10,7 +10,7 @@ export const StateContext = ( { children } ) => {
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     
-    RouterDataControl(setNavRoute, setShowCart);
+    RouterDataControl(setNavRoute, setShowCart, cartItems, setCartItems, setTotalQuantities, setTotalPrice);
 
     useEffect(() => {
         // Retrieve the count value from local storage if it exists

@@ -63,10 +63,10 @@ export function AllProducts({products}) {
                                     {e.discount > 0 ? <span className="line-through">R$ {PriceToBRL(e)}</span> : null}
                                     <span>R$ {DiscountToBRL(e)}</span>
                                 </div>
-                                <span className="btn_products_add" onClick={()=>{
+                                {/* <span className="btn_products_add" onClick={()=>{
                                     AddOnCart(e, 1, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice);
                                     setShowCart(true);
-                                    }}>+</span>
+                                    }}>+</span> */}
                                 { e.discount > 0 ? (
                                     <>
                                         <figure className="all_products_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>

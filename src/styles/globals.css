@@ -513,7 +513,7 @@ a:hover, .cart:hover{
 }
 
 .product_image_container{
- @apply  flex flex-col w-full min-h-[400px] md:w-1/2;
+ @apply  flex flex-col w-full min-h-[400px] max-h-[800px] md:w-1/2;
 }
 
 .product_img{
@@ -587,7 +587,7 @@ a:hover, .cart:hover{
  
 
 .mini_slide_item{
-  @apply  rounded-lg overflow-hidden relative min-w-[100px];
+  @apply  rounded-lg overflow-hidden relative h-[200px];
 }
 
 .mini_slide_item img{

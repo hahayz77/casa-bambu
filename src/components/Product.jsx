@@ -1,6 +1,6 @@
 import { useStateContext } from "@/context/StateContext";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductMiniCarousel } from "./ProductMiniCarousel";
 import { useRouter } from "next/router"
 import { urlFor } from "@/lib/SanityClient";
@@ -17,6 +17,10 @@ export function Product({products}) {
     const product = products.find(e=> e.slug.current === slug);
     const [miniCarouselImg, setMiniCarouselImg] = useState(urlFor(product.image[0].asset._ref).url());
     const [quantity, setQuantity] = useState(1);
+
+    useEffect(()=>{
+        setMiniCarouselImg(urlFor(product.image[0].asset._ref).url());
+    },[slug])
 
     return (
         <>
