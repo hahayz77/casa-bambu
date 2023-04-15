@@ -9,9 +9,10 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Categories } from "./Categories";
 import { CategoriesSpecial } from "./CategoriesSpecial";
+import { AddOnCart } from "@/functions/AddOnCart";
 
 export function AllProducts({products}) {
-    const { setShowCart } =  useStateContext();
+    const { setShowCart, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice } =  useStateContext();
     const [search, setSearch] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [pageNumber, setPageNumber] = useState(1);
@@ -62,7 +63,10 @@ export function AllProducts({products}) {
                                     {e.discount > 0 ? <span className="line-through">R$ {PriceToBRL(e)}</span> : null}
                                     <span>R$ {DiscountToBRL(e)}</span>
                                 </div>
-                                <span className="btn_products_add" onClick={()=>{setShowCart(true)}}>+</span>
+                                <span className="btn_products_add" onClick={()=>{
+                                    AddOnCart(e, 1, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice);
+                                    setShowCart(true);
+                                    }}>+</span>
                                 { e.discount > 0 ? (
                                     <>
                                         <figure className="all_products_discount"><Image src='/discount.svg' width='200' height='200'></Image></figure>

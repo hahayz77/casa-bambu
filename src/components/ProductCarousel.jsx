@@ -7,10 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useStateContext } from "@/context/StateContext";
 import { urlFor } from "@/lib/SanityClient";
+import { AddOnCart } from "@/functions/AddOnCart";
 
 
 export function ProductCarousel({products}) {
-    const { setShowCart } = useStateContext();
+    const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice, setShowCart } = useStateContext();
     const featured = products?.slice(0, 6); // Limit the number of products to carousel
     const productsSort = featured?.sort((a,b) => b._updatedAt.localeCompare(a._updatedAt));
 
@@ -37,7 +38,10 @@ export function ProductCarousel({products}) {
                                     </>
                                 ) : null}
 							</Link>
-							<Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{setShowCart(true)}}>+</span></Link>
+							<Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{
+                                AddOnCart(e, 1, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice);
+                                setShowCart(true);
+                                }}>+</span></Link>
                         </SwiperSlide>
                     )
                 })}

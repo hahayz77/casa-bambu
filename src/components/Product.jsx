@@ -55,7 +55,7 @@ export function Product({products}) {
                     <button onClick={()=>{
                         AddOnCart(product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice);
                         setShowCart(true);
-                        setQuantity(1);
+                        setQuantity(1); // Reset que qty button of the single product selected
                     }} className="btn_cta bg-green bg-opacity-70 text-lg">Adicionar ao Carrinho</button>
                 </div>
             </div>

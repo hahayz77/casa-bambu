@@ -7,7 +7,7 @@ import { urlFor } from "@/lib/SanityClient";
 
 
 export function Cart() {
-    const { showCart, setShowCart, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice } = useStateContext();
+    const { cartItems, setCartItems, showCart, setShowCart, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice } = useStateContext();
     return (
         <>
             <div className={`cart_menu ${showCart === true ? 'showcartmenu' : 'hidecartmenu'}`} >

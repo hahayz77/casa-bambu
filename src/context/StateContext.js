@@ -1,10 +1,10 @@
 import { RouterDataControl } from "@/functions/RouterDataControl";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { setCookie, parseCookies } from 'nookies'
 
 const Context = createContext();
 
 export const StateContext = ( { children } ) => {
-    const teste = "UseContext()!";
     const [showCart, setShowCart] = useState(false);
     const [navRoute, setNavRoute] = useState("");
     const [cartItems, setCartItems] = useState([]);
@@ -16,7 +16,6 @@ export const StateContext = ( { children } ) => {
 
     return(
         <Context.Provider value={{
-            teste,
             showCart, 
             setShowCart, 
             cartItems, 
