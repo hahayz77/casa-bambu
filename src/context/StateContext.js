@@ -1,6 +1,5 @@
 import { RouterDataControl } from "@/functions/RouterDataControl";
 import { createContext, useContext, useEffect, useState } from "react";
-import { setCookie, parseCookies } from 'nookies'
 
 const Context = createContext();
 
