@@ -564,6 +564,14 @@ a:hover, .cart:hover{
   @apply  absolute top-6 right-12 text-2xl
  }
 
+ .tags_wrapper{
+  @apply flex flex-row gap-x-2;
+ }
+
+ .tags{
+  @apply bg-white bg-opacity-70 w-fit rounded-full rounded-l-none text-black px-2 text-xs cursor-pointer hover:scale-105 duration-200;
+ }
+
 .product_controls{
  @apply  flex flex-row justify-center w-full py-6;
 }

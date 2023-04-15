@@ -17,6 +17,7 @@ export function Product({products}) {
     const product = products.find(e=> e.slug.current === slug);
     const [miniCarouselImg, setMiniCarouselImg] = useState(urlFor(product.image[0].asset._ref).url());
     const [quantity, setQuantity] = useState(1);
+    const categoriesArray = product.categories?.split(', ');
 
     useEffect(()=>{
         setMiniCarouselImg(urlFor(product.image[0].asset._ref).url());
@@ -51,10 +52,20 @@ export function Product({products}) {
                     </div>
                     <span>Detalhes do Produto</span>
                     <span>{product.details}</span>
+                    <div className="tags_wrapper">
+                        {categoriesArray?.map((e,index)=>{ return (
+                            <span className="tags" key={`categoriesArray${index}`} id={e} onClick={(e)=>{
+                                // console.log(e.target.id);
+                            }}>{e}</span>
+                        )})}
+                    </div>
                     <div className="product_controls">
                         <button onClick={(qty)=>{if(quantity > 1 ) setQuantity(qty = quantity - 1)}}>-</button>
                         <span className="px-4">{quantity}</span>
-                        <button onClick={(qty)=>{setQuantity(qty = quantity + 1)}}>+</button>
+                        <button onClick={(qty)=>{
+                            if(qty <= product)
+                            setQuantity(qty = quantity + 1)
+                            }}>+</button>
                     </div>
                     <button onClick={()=>{
                         AddOnCart(product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice);
