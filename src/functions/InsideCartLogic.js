@@ -6,11 +6,16 @@ export async function InsideCartLogic(product, method, cartItems, setCartItems, 
 
     if(method === 'dec'){
         cartItems[index].qty -= 1;
-        setTotalQuantities(totalQuantities -= 1);
+         totalQuantities = totalQuantities - 1
+        setTotalQuantities(totalQuantities);
+        localStorage.setItem('totalQuantities', totalQuantities);
+
         // toast.error(`${product.name} Removed! `);
     }
     else if(method === 'inc'){ 																							// IMPLEMENTAR LIMITE DE PRODUTOS
-        setTotalQuantities(totalQuantities += 1);
+        totalQuantities = totalQuantities + 1;
+        setTotalQuantities(totalQuantities);
+        localStorage.setItem('totalQuantities', totalQuantities);
         cartItems[index].qty += 1;
         setCartItems(cartItems);
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -18,7 +23,9 @@ export async function InsideCartLogic(product, method, cartItems, setCartItems, 
 
     }
     else if(method === 'rem'){
-        setTotalQuantities(totalQuantities -= product.qty);
+        totalQuantities = totalQuantities - product.qty;
+        setTotalQuantities(totalQuantities);
+        localStorage.setItem('totalQuantities', totalQuantities);
         cartItems[index].qty = 0;
         // toast.error(`All ${product.name} Removed!`);
     }
@@ -31,17 +38,19 @@ export async function InsideCartLogic(product, method, cartItems, setCartItems, 
         }
         
         setTotalPrice(Number(parseFloat(totalPrice).toFixed(2)));
+        localStorage.setItem('totalPrice', Number(parseFloat(totalPrice).toFixed(2)).toString());
         RemoveComponent();
     }
     
     function RemoveComponent(){
         if(method === 'dec' && product.qty === 0){
             setCartItems(arrayOfOtherProducts);
+            localStorage.setItem('cartItems', JSON.stringify(arrayOfOtherProducts));
         }
         if(method === 'rem'){
             setCartItems(arrayOfOtherProducts);
+            localStorage.setItem('cartItems', JSON.stringify(arrayOfOtherProducts));
         }
-        localStorage.setItem('cartItems', JSON.stringify(arrayOfOtherProducts));
     }
 }
 
