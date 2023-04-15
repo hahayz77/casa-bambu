@@ -13,6 +13,16 @@ export const StateContext = ( { children } ) => {
     
     RouterDataControl(setNavRoute,setShowCart);
 
+    useEffect(() => {
+        // Retrieve the count value from local storage if it exists
+        if (typeof window !== 'undefined') {
+          const storeCartItems = window.localStorage.getItem('cartItems');
+          if (storeCartItems) {
+            setCartItems(JSON.parse(storeCartItems));
+            // setTotalQuantities(JSON.parse(window.localStorage.getItem('setTotalQuantities')))
+          }
+        }
+      }, []);
 
     return(
         <Context.Provider value={{

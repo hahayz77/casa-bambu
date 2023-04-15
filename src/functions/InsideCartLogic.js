@@ -13,6 +13,7 @@ export async function InsideCartLogic(product, method, cartItems, setCartItems, 
         setTotalQuantities(totalQuantities += 1);
         cartItems[index].qty += 1;
         setCartItems(cartItems);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
         // toast.success(`1un of ${product.name} added in Cart! `);
 
     }
@@ -39,8 +40,8 @@ export async function InsideCartLogic(product, method, cartItems, setCartItems, 
         }
         if(method === 'rem'){
             setCartItems(arrayOfOtherProducts);
-            
         }
+        localStorage.setItem('cartItems', JSON.stringify(arrayOfOtherProducts));
     }
 }
 
