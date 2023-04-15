@@ -19,7 +19,8 @@ export const StateContext = ( { children } ) => {
           const storeCartItems = window.localStorage.getItem('cartItems');
           if (storeCartItems) {
             setCartItems(JSON.parse(storeCartItems));
-            // setTotalQuantities(JSON.parse(window.localStorage.getItem('setTotalQuantities')))
+            setTotalQuantities(JSON.parse(window.localStorage.getItem('totalQuantities')));
+            setTotalPrice(JSON.parse(window.localStorage.getItem('totalPrice')));
           }
         }
       }, []);
