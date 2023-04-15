@@ -52,7 +52,7 @@ export function AllProducts({products}) {
                     </div>
                </div>
                 {view?.map((e)=>{ return(
-                        <div id={e.id} className="products_wrapper">
+                        <div key={e.id} className="products_wrapper">
                             <Link href={`/produto/${e.slug.current}`}>
                                 <div className="products_img">
                                     <Image src={urlFor(e?.image[0]).url()} width='600' height='600' alt="single_product"/>

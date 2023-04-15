@@ -10,7 +10,7 @@ export function Steps() {
                 <div className="steps_container">
                     {repeat.map((e, index)=>{
                         return(
-                            <div className="step_content">
+                            <div className="step_content" key={`stepcontent${index}`}>
                                 <figure className="step_figure"><img src='https://img.icons8.com/color/96/null/get-cash.png'/></figure>
                                 <div className="step_description">
                                     <div className="step_title">
