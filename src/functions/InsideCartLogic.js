@@ -1,36 +1,39 @@
-export async function InsideCartLogic(product, method, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice) {
-
+export const InsideCartLogic = (product, method, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice) => {
+    
+    let setItem = {cartItems: [], totalPrice: 0, totalQuantities: 0};
     totalPrice = 0;
     const arrayOfOtherProducts = cartItems.filter((item) => item._id !== product._id);
     const index = cartItems.findIndex((e)=> e._id === product._id);
 
     if(method === 'dec'){
         cartItems[index].qty -= 1;
-         totalQuantities = totalQuantities - 1
+        totalQuantities = totalQuantities - 1;
+        setItem.totalQuantities = totalQuantities;
         setTotalQuantities(totalQuantities);
-        localStorage.setItem('totalQuantities', totalQuantities);
 
         // toast.error(`${product.name} Removed! `);
     }
     else if(method === 'inc'){ 																							// IMPLEMENTAR LIMITE DE PRODUTOS
         totalQuantities = totalQuantities + 1;
+        setItem.totalQuantities = totalQuantities;
         setTotalQuantities(totalQuantities);
-        localStorage.setItem('totalQuantities', totalQuantities);
         cartItems[index].qty += 1;
-        setCartItems(cartItems);
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
         // toast.success(`1un of ${product.name} added in Cart! `);
 
     }
     else if(method === 'rem'){
         totalQuantities = totalQuantities - product.qty;
+        setItem.totalQuantities = totalQuantities;
         setTotalQuantities(totalQuantities);
-        localStorage.setItem('totalQuantities', totalQuantities);
         cartItems[index].qty = 0;
         // toast.error(`All ${product.name} Removed!`);
     }
     
+
+    setItem.cartItems = cartItems;
+    setCartItems(cartItems);
     CalcAndRemove();
+    localStorage.setItem('cart', JSON.stringify(setItem));
     
     function CalcAndRemove(){
         for (let i in cartItems){
@@ -38,18 +41,18 @@ export async function InsideCartLogic(product, method, cartItems, setCartItems, 
         }
         
         setTotalPrice(Number(parseFloat(totalPrice).toFixed(2)));
-        localStorage.setItem('totalPrice', Number(parseFloat(totalPrice).toFixed(2)).toString());
+        setItem.totalPrice = Number(parseFloat(totalPrice).toFixed(2));
         RemoveComponent();
     }
     
     function RemoveComponent(){
         if(method === 'dec' && product.qty === 0){
             setCartItems(arrayOfOtherProducts);
-            localStorage.setItem('cartItems', JSON.stringify(arrayOfOtherProducts));
+            setItem.cartItems = arrayOfOtherProducts;
         }
         if(method === 'rem'){
             setCartItems(arrayOfOtherProducts);
-            localStorage.setItem('cartItems', JSON.stringify(arrayOfOtherProducts));
+            setItem.cartItems = arrayOfOtherProducts;
         }
     }
 }

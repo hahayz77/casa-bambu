@@ -15,11 +15,11 @@ export const StateContext = ( { children } ) => {
     useEffect(() => {
         // Retrieve the count value from local storage if it exists
         if (typeof window !== 'undefined') {
-          const storeCartItems = window.localStorage.getItem('cartItems');
-          if (storeCartItems) {
-            setCartItems(JSON.parse(storeCartItems));
-            setTotalQuantities(JSON.parse(window.localStorage.getItem('totalQuantities')));
-            setTotalPrice(JSON.parse(window.localStorage.getItem('totalPrice')));
+          const storedCart = JSON.parse(window.localStorage.getItem('cart'));
+          if (storedCart) {
+            setCartItems(storedCart.cartItems);
+            setTotalQuantities(storedCart.totalQuantities);
+            setTotalPrice(storedCart.totalPrice);
           }
         }
       }, []);
