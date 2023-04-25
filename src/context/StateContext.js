@@ -16,7 +16,7 @@ export const StateContext = ( { children } ) => {
         // Retrieve the count value from local storage if it exists
         if (typeof window !== 'undefined') {
           const storedCart = JSON.parse(window.localStorage.getItem('cart'));
-          if (storedCart) {w
+          if (storedCart) {
             setCartItems(storedCart.cartItems);
             setTotalQuantities(storedCart.totalQuantities);
             setTotalPrice(storedCart.totalPrice);

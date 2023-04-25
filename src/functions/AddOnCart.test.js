@@ -9,7 +9,7 @@ const setCartItems = ()=>{}
 const setTotalQuantities = ()=>{}
 const setTotalPrice = ()=>{}
 
-const result = 0;
+const result = undefined;
 
 
 describe('Return Test', ()=>{
