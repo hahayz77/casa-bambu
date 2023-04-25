@@ -3,7 +3,7 @@ import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { client } from '@/lib/SanityClient';
-import { Faq } from "@/components/FAQ";
+import { Faq } from "@/components/Faq";
 
 
 export default function Sobre({faq}) {
