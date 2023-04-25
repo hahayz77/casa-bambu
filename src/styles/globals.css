@@ -483,6 +483,34 @@ a:hover, .cart:hover{
  @apply  inline-flex bg-green
 }
 
+
+
+/*######################## About ########################*/
+
+#about .img_container{
+ @apply  p-4 grid place-items-center h-[200px]
+}
+
+#about .img_container img{
+  @apply h-full overflow-hidden bg-green bg-opacity-20 shadow-sm w-fit rounded-full py-6
+ }
+
+
+/*######################## FAQ ########################*/
+
+#faq{
+ @apply mx-6 mb-24 md:px-32 md:text-lg
+}
+
+.faq_container, .nextui-c-kRHeuF > *{
+ @apply  bg-rose bg-opacity-20 overflow-hidden rounded-2xl
+}
+
+.nextui-c-fMAxGR {
+  @apply bg-white bg-opacity-60 p-4 rounded-xl mb-4
+}
+
+
 /*######################## Footer ########################*/
 
 .footer_wrapper{
