@@ -7,16 +7,16 @@ import { urlFor } from "@/lib/SanityClient";
 import { AddOnCart } from "@/functions/AddOnCart";
 import { PriceToBRL } from "@/functions/PriceToBRL";
 import { DiscountToBRL } from "@/functions/DiscountToBRL";
+import { toast } from "react-hot-toast";
 
 
 export function Product({products}) {
-    const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice, setShowCart } = useStateContext();
+    const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice, setShowCart, quantity, setQuantity } = useStateContext();
     const [fullImg, setFullImg] = useState(false);
     const router = useRouter();
     const { query : { slug } } = router;
     const product = products.find(e=> e.slug.current === slug);
     const [miniCarouselImg, setMiniCarouselImg] = useState(urlFor(product.image[0].asset._ref).url());
-    const [quantity, setQuantity] = useState(1);
     const categoriesArray = product.categories?.split(', ');
 
     useEffect(()=>{
@@ -62,12 +62,18 @@ export function Product({products}) {
                     <div className="product_controls">
                         <button onClick={(qty)=>{if(quantity > 1 ) setQuantity(qty = quantity - 1)}}>-</button>
                         <span className="px-4">{quantity}</span>
-                        <button onClick={(qty)=>{
-                            if(qty <= product)
-                            setQuantity(qty = quantity + 1)
-                            }}>+</button>
+                        <button onClick={(qty)=>{ setQuantity(qty = quantity + 1) }}>+</button>
                     </div>
-                    <button onClick={()=>{
+                    <button onClick={(itemVerify, finalQuantity) => {
+                        itemVerify = cartItems?.find(e=> e._id === product._id);
+                        if(itemVerify) {
+                            finalQuantity = itemVerify.qty + quantity;
+                            if(finalQuantity > product.max_qty && product.max_qty !== 0 ) {
+                                toast.error(`${product.name} tem o limite de ${product.max_qty} ${product.max_qty === 1 ? 'item' : 'itens'} por pedido.`);
+                                setQuantity(1);
+                                return;
+                            }
+                        }
                         AddOnCart(product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice);
                         setShowCart(true);
                         setQuantity(1); // Reset que qty button of the single product selected

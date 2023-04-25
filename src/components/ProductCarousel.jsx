@@ -38,10 +38,10 @@ export function ProductCarousel({products}) {
                                     </>
                                 ) : null}
 							</Link>
-							<Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{
+							{/* <Link href='#outrosprodutos'><span className="add_cart_carousel" onClick={()=>{
                                 AddOnCart(e, 1, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice);
                                 setShowCart(true);
-                                }}>+</span></Link>
+                                }}>+</span></Link> */}
                         </SwiperSlide>
                     )
                 })}

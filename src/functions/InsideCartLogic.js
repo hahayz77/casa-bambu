@@ -1,3 +1,5 @@
+import { toast } from "react-hot-toast";
+
 export const InsideCartLogic = (product, method, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice) => {
     
     let setItem = {cartItems: [], totalPrice: 0, totalQuantities: 0};
@@ -10,15 +12,20 @@ export const InsideCartLogic = (product, method, cartItems, setCartItems, totalQ
         totalQuantities = totalQuantities - 1;
         setItem.totalQuantities = totalQuantities;
         setTotalQuantities(totalQuantities);
-
-        // toast.error(`${product.name} Removed! `);
+        toast.error(`${product.name} foi removido do carrinho! `);
     }
-    else if(method === 'inc'){ 																							// IMPLEMENTAR LIMITE DE PRODUTOS
-        totalQuantities = totalQuantities + 1;
-        setItem.totalQuantities = totalQuantities;
-        setTotalQuantities(totalQuantities);
-        cartItems[index].qty += 1;
-        // toast.success(`1un of ${product.name} added in Cart! `);
+    else if(method === 'inc'){ 			
+        let maxQtyVerify = cartItems[index].qty + 1;
+        if( maxQtyVerify <= product.max_qty || product.max_qty === 0) {													// PRODUCT LIMIT
+            totalQuantities = totalQuantities + 1;
+            cartItems[index].qty += 1;
+            setItem.totalQuantities = totalQuantities;
+            setTotalQuantities(totalQuantities);
+            toast.success(`${product.name} foi adicionado ao carrinho!`);
+        } else{
+            toast.error(`${product.name} tem o limite de ${product.max_qty} ${product.max_qty === 1 ? 'item' : 'itens'} por pedido.`);
+            return;
+        }
 
     }
     else if(method === 'rem'){
@@ -26,7 +33,7 @@ export const InsideCartLogic = (product, method, cartItems, setCartItems, totalQ
         setItem.totalQuantities = totalQuantities;
         setTotalQuantities(totalQuantities);
         cartItems[index].qty = 0;
-        // toast.error(`All ${product.name} Removed!`);
+        toast.error(`Todas as unidades de ${product.name} foram removidas do carrinho! `);
     }
     
 

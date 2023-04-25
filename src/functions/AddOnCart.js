@@ -1,3 +1,5 @@
+import { toast } from "react-hot-toast";
+
 export const AddOnCart = (product, quantity, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice ,setTotalPrice, finalPrice) => {
     let setItem = {cartItems: [], totalPrice: 0, totalQuantities: 0};
     finalPrice = Number(parseFloat( product.price * ( 1- ( product.discount ) / 100) ).toFixed(2));
@@ -29,6 +31,6 @@ export const AddOnCart = (product, quantity, cartItems, setCartItems, totalQuant
     setTotalQuantities(totalQuantities);
     setTotalPrice(Number(parseFloat(totalPrice + finalPrice * quantity).toFixed(2)));
     localStorage.setItem('cart', JSON.stringify(setItem));
+    toast.success(`${product.name} foi adicionado ao carrinho!`);
     // return {cartItems, totalPrice, totalQuantities}
-    // toast.success(`${qty}un ${product.name} was added in cart.`);
 }

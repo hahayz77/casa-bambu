@@ -5,6 +5,7 @@ import '@/styles/themebg.css'
 import Head from 'next/head';
 import { NextUIProvider } from '@nextui-org/react';
 import { theme } from 'public/configs/next_theme'
+import { Toaster } from 'react-hot-toast';
 
 
 export default function App({ Component, pageProps }) {
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }) {
           <NextUIProvider theme={theme}>
             <Component {...pageProps} />
           </NextUIProvider>
+          <Toaster/>
       </StateContext>
     </>
   )

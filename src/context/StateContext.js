@@ -9,8 +9,9 @@ export const StateContext = ( { children } ) => {
     const [cartItems, setCartItems] = useState([]);
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [quantity, setQuantity] = useState(1);
     
-    RouterDataControl(setNavRoute, setShowCart, cartItems, setCartItems, setTotalQuantities, setTotalPrice);
+    RouterDataControl(setNavRoute, setShowCart, cartItems, setCartItems, setTotalQuantities, setTotalPrice, setQuantity);
 
     useEffect(() => {
         // Retrieve the count value from local storage if it exists
@@ -35,6 +36,8 @@ export const StateContext = ( { children } ) => {
             totalPrice, 
             setTotalPrice,
             navRoute,
+            quantity,
+            setQuantity
         }}>
         {children}
         </Context.Provider>
