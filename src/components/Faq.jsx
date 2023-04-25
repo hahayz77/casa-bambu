@@ -10,9 +10,9 @@ export function Faq({faq}) {
                         <Collapse.Group shadow>
                             {faq?.map((e)=>{
                                 return(
-                                        <Collapse title={e.ask}>
-                                            <Text>{e.answer}</Text>
-                                        </Collapse>
+                                    <Collapse title={e.ask}>
+                                        <Text>{e.answer}</Text>
+                                    </Collapse>
                                 )
                             })}
                         </Collapse.Group>

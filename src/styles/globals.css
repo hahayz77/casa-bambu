@@ -492,7 +492,11 @@ a:hover, .cart:hover{
 }
 
 #about .img_container img{
-  @apply h-full overflow-hidden bg-green bg-opacity-20 shadow-sm w-fit rounded-full py-6
+  @apply h-full overflow-hidden bg-green bg-opacity-20 shadow-sm w-fit rounded-full py-6 hover:scale-110 duration-200
+ }
+
+ .about_content{
+  @apply  px-8 md:px-32 text-justify my-8
  }
 
 
