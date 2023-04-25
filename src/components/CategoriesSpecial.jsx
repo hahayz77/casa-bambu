@@ -28,7 +28,6 @@ export function CategoriesSpecial() {
                         <Dropdown.Item key="todos os produtos">Todos Os Produtos</Dropdown.Item>
                         <Dropdown.Item key="melhores descontos">Melhores Descontos</Dropdown.Item>
                         <Dropdown.Item key="destaques">Destaques</Dropdown.Item>
-                        <Dropdown.Item key="mais vendidos">Mais Vendidos</Dropdown.Item>
                         <Dropdown.Item key="mais caros">Mais Caros</Dropdown.Item>
                         <Dropdown.Item key="mais baratos">Mais Baratos</Dropdown.Item>
                     </Dropdown.Menu>

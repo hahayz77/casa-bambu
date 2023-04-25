@@ -1,11 +1,23 @@
 import { Cart } from "@/components/Cart";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import { useStateContext } from "@/context/StateContext";
 import Image from "next/image";
+import { useEffect } from "react";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Success() {
+
+    const { setCartItems, setTotalQuantities, setTotalPrice } = useStateContext();
+    useEffect(()=>{
+        localStorage.setItem('cart', JSON.stringify({cartItems: [], totalPrice: 0, totalQuantities: 0}));
+        setCartItems([]);
+        setTotalPrice(0);
+        setTotalQuantities(0);
+    },[])
+    
     const email = 'contato@contato.com'
+
     return (
         <>
             <Nav/>

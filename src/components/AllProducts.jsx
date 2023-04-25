@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Categories } from "./Categories";
 import { CategoriesSpecial } from "./CategoriesSpecial";
-import { AddOnCart } from "@/functions/AddOnCart";
 
 export function AllProducts({products}) {
     const { setShowCart, cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice } =  useStateContext();

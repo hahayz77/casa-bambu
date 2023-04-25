@@ -4,10 +4,36 @@ import { DiscountToBRL } from "@/functions/DiscountToBRL";
 import { PriceToBRL } from "@/functions/PriceToBRL";
 import { InsideCartLogic } from "@/functions/InsideCartLogic";
 import { urlFor } from "@/lib/SanityClient";
+import getStripe from "@/lib/getStripe";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 
 export function Cart() {
+   
     const { cartItems, setCartItems, showCart, setShowCart, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice } = useStateContext();
+    const router = useRouter();
+
+    const handleCheckout = async () => {
+
+        toast.loading('Redirecionando...');
+        const stripe = await getStripe();
+        const response = await fetch('/api/stripe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cartItems),
+        })
+        
+        if(response.statusCode === 500) {
+            router.push(`/500`);
+            return;
+        }
+        const data = await response.json();
+        stripe.redirectToCheckout({ sessionId: data.id });
+      }
+
     return (
         <>
             <div className={`cart_menu ${showCart === true ? 'showcartmenu' : 'hidecartmenu'}`} >
@@ -42,7 +68,7 @@ export function Cart() {
                             <span>R$ {(parseFloat(totalPrice).toFixed(2)).replace('.',',')}</span>
                         </div>
                         <div className="cart_buy_btn">
-                            <button> Finalizar Comprar </button>
+                            <button onClick={handleCheckout}> Finalizar Comprar </button>
                         </div>
                     </div>
                 </div>
