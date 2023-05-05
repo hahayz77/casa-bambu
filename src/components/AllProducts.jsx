@@ -26,6 +26,23 @@ export function AllProducts({products}) {
     },[pageNumber])
 
     const router = useRouter();
+
+    function searchObjects(arr, searchString) {
+        return arr.filter((obj) => {
+            return (
+              obj.name?.toLowerCase().includes(searchString.toLowerCase()) ||
+              obj.description?.toLowerCase().includes(searchString.toLowerCase()) || []
+            );
+          });
+      }
+
+    function handlerChange(event){
+        setInputValue(event.target.value);
+        console.log(event.target.value);
+        const results = searchObjects(products, inputValue);
+        console.log(results);
+    }
+
     function handlerEnter(e){
         router.push(`/produto/${inputValue}`);
     }
@@ -35,7 +52,10 @@ export function AllProducts({products}) {
             <div id="all_products" className="bg-special">
                <div className="search_wrapper">
                     <Row className="search" justify="center" align="center">
-                        <Input clearable underlined labelPlaceholder="Name" initialValue={inputValue} size="xl" color="secondary" label="Pesquisar" onFocus={()=>{setSearch(true)}} onBlur={()=>{setTimeout(() => {setSearch(false)}, "200")}} onChange={(e)=>{setInputValue(e.target.value)}} onKeyDown={(e)=>{if(e.key === "Enter"){handlerEnter(e.key)}}} css={{width:'100%'}}/>
+                        <Input clearable underlined labelPlaceholder="Name" initialValue={inputValue} size="xl" color="secondary" label="Pesquisar" 
+                        onFocus={()=>{setSearch(true)}} onBlur={()=>{setTimeout(() => {setSearch(false)}, "200")}} 
+                        onChange={handlerChange} onKeyDown={(e)=>{if(e.key === "Enter"){handlerEnter(e.key)}}} css={{width:'100%'}}/>
+                        
                         {search === true  && inputValue !== '' &&
                             <div className={` ${search === true ? 'search_result' : 'search_ocult'}`} onFocus={()=>{setSearch(true)}}>
                                 <Link href={`/produto/${inputValue}1`}><span>{inputValue}</span></Link>
