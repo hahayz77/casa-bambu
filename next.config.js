@@ -6,8 +6,14 @@ dotenv.config();
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.sanity.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        pathname: '/**', // Adjust the pathname as needed
+      },
+    ],
   },
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
